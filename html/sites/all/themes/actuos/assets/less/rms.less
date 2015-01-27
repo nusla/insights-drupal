@@ -1,0 +1,214 @@
+
+body {
+    font-family: "Open Sans",sans-serif;
+    font-size: 14px;
+}
+
+.main {
+    width: 100%;
+    overflow: hidden;
+}
+
+.wrappa {
+    margin-top: 11%;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+    border-color: transparent;
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.001) inset, 0 0 1px rgba(255, 255, 255, 0.1);
+    outline: 0 none;
+}
+
+label {
+    color: #ffffff;
+    font-weight: 300;
+}
+
+label[for=edit-remember-me]{
+    font-size: 1.4rem;
+    font-weight: 300;
+    padding-left: 5.5%;
+}
+
+label[for=edit-remember-me] span {
+    position: absolute;
+	margin-top: -0.7em;
+	margin-left: 1.2em;
+}
+
+img.bg {
+    min-height: 100%;
+    min-width: 1024px;
+
+    width: 100%;
+    height: auto;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+    img.bg {
+        left: 50%;
+        margin-left: -512px;   /* 50% */
+    }
+}
+
+.loginform_holder {
+    margin-top: -8%;
+    padding: 2%;
+    height: 325px;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 5px;
+}
+
+.inputicon_email {
+    position: absolute;
+    font-size: 1.8rem;
+    top: 20%;
+    left: 7%;
+    color: #333;
+    opacity: 0.9;
+}
+
+.inputicon_pswd {
+    position: absolute;
+    font-size: 2.6rem;
+    top: 46%;
+    left: 7%;
+    color: #333;
+    opacity: 0.9;
+}
+
+input.loginmail {
+    height: 50px;
+    background-color: #ffffff;
+    color: #a4b1b5;
+    font-size: 1.286rem;
+    font-weight: 400;
+    text-align: left;
+    border: none;
+    outline: none;
+    padding-left: 45px;
+}
+
+input.loginpassword {
+    height: 50px;
+    background-color: #ffffff;
+    color: #a4b1b5;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: left;
+    border: none;
+    outline: none;
+    padding-left: 45px;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+.form-type-checkbox label:before {
+    content: "";
+    display: inline-block;
+    margin-right: 2%;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    bottom: 12px;
+    background-color: #ffffff;
+
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+
+}
+
+input[type=checkbox]:checked + label:before {
+    content: "\f00c";
+    font-family: "FontAwesome";
+    font-size: 1rem;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+    font-size: 15px;
+    color: #00a19c;
+    text-align: center;
+    line-height: 15px;
+}
+
+.forgot-pswd a {
+    color: #ffffff;
+    font-weight: 300;
+    margin-top: -1%;
+    position: absolute;
+    right: 0;
+
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+.forgot-pswd a:hover {
+    color: #555;
+    text-decoration: none;
+}
+
+.buttons_area {
+    margin-top: 1%;
+}
+
+a.lang_select {
+    color: #ffffff;
+    font-weight: 300;
+    right: 15%;
+    position: relative;
+
+}
+
+input.log_in {
+    padding: 16px 36px 16px 36px;
+    font-size: 1.1em;
+    color: #ffffff;
+    background-color: #df4b38;
+    font-weight: 400;
+    border-radius: 2px;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+input.log_in:hover, button.log_in:focus {
+    background-color: #c0392b;
+    color: #ffffff;
+    outline: none;
+}
+
+.rms_itself {
+    margin-top: 37%;
+    width: 8%;
+    position: relative;
+    z-index: 6666;
+
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.rms_itself:hover {
+    -webkit-filter: drop-shadow(1px 4px 3px rgba(255,255,255,0.2));
+    filter: drop-shadow(1px 4px 3px rgba(255,255,255,0.2));
+}
