@@ -13,16 +13,16 @@
 /**
  * Alter the list of tests.
  *
- * @param $groups
- *   A two dimension array, the first key is the test group (as defined in
- *   getInfo) the second is the name of the class and the value is the return
- *   value of the getInfo method.
+ * @param $groups A
+ *        	two dimension array, the first key is the test group (as defined in
+ *        	getInfo) the second is the name of the class and the value is the return
+ *        	value of the getInfo method.
  */
 function hook_simpletest_alter(&$groups) {
-  // An alternative session handler module would not want to run the original
-  // Session HTTPS handling test because it checks the sessions table in the
-  // database.
-  unset($groups['Session']['testHttpsSession']);
+	// An alternative session handler module would not want to run the original
+	// Session HTTPS handling test because it checks the sessions table in the
+	// database.
+	unset ( $groups ['Session'] ['testHttpsSession'] );
 }
 
 /**
@@ -46,9 +46,9 @@ function hook_test_group_finished() {
  *
  * This hook is called when an individual test has finished.
  *
- * @param
- *   $results The results of the test as gathered by DrupalWebTestCase.
- *
+ * @param $results The
+ *        	results of the test as gathered by DrupalWebTestCase.
+ *        	
  * @see DrupalWebTestCase->results
  */
 function hook_test_finished($results) {

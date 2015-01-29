@@ -79,19 +79,19 @@
  * Note that the base theme's form alterations will be run before any sub-theme
  * alterations.
  *
- * @param $form
- *   Nested array of form elements that comprise the form.
- * @param $form_state
- *   A keyed array containing the current state of the form.
+ * @param $form Nested
+ *        	array of form elements that comprise the form.
+ * @param $form_state A
+ *        	keyed array containing the current state of the form.
  */
 function hook_form_system_theme_settings_alter(&$form, &$form_state) {
-  // Add a checkbox to toggle the breadcrumb trail.
-  $form['toggle_breadcrumb'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Display the breadcrumb'),
-    '#default_value' => theme_get_setting('toggle_breadcrumb'),
-    '#description'   => t('Show a trail of links from the homepage to the current page.'),
-  );
+	// Add a checkbox to toggle the breadcrumb trail.
+	$form ['toggle_breadcrumb'] = array (
+			'#type' => 'checkbox',
+			'#title' => t ( 'Display the breadcrumb' ),
+			'#default_value' => theme_get_setting ( 'toggle_breadcrumb' ),
+			'#description' => t ( 'Show a trail of links from the homepage to the current page.' ) 
+	);
 }
 
 /**
@@ -105,43 +105,42 @@ function hook_form_system_theme_settings_alter(&$form, &$form_state) {
  *
  * For more detailed information, see theme().
  *
- * @param $variables
- *   The variables array (modify in place).
- * @param $hook
- *   The name of the theme hook.
+ * @param $variables The
+ *        	variables array (modify in place).
+ * @param $hook The
+ *        	name of the theme hook.
  */
 function hook_preprocess(&$variables, $hook) {
- static $hooks;
-
-  // Add contextual links to the variables, if the user has permission.
-
-  if (!user_access('access contextual links')) {
-    return;
-  }
-
-  if (!isset($hooks)) {
-    $hooks = theme_get_registry();
-  }
-
-  // Determine the primary theme function argument.
-  if (isset($hooks[$hook]['variables'])) {
-    $keys = array_keys($hooks[$hook]['variables']);
-    $key = $keys[0];
-  }
-  else {
-    $key = $hooks[$hook]['render element'];
-  }
-
-  if (isset($variables[$key])) {
-    $element = $variables[$key];
-  }
-
-  if (isset($element) && is_array($element) && !empty($element['#contextual_links'])) {
-    $variables['title_suffix']['contextual_links'] = contextual_links_view($element);
-    if (!empty($variables['title_suffix']['contextual_links'])) {
-      $variables['classes_array'][] = 'contextual-links-region';
-    }
-  }
+	static $hooks;
+	
+	// Add contextual links to the variables, if the user has permission.
+	
+	if (! user_access ( 'access contextual links' )) {
+		return;
+	}
+	
+	if (! isset ( $hooks )) {
+		$hooks = theme_get_registry ();
+	}
+	
+	// Determine the primary theme function argument.
+	if (isset ( $hooks [$hook] ['variables'] )) {
+		$keys = array_keys ( $hooks [$hook] ['variables'] );
+		$key = $keys [0];
+	} else {
+		$key = $hooks [$hook] ['render element'];
+	}
+	
+	if (isset ( $variables [$key] )) {
+		$element = $variables [$key];
+	}
+	
+	if (isset ( $element ) && is_array ( $element ) && ! empty ( $element ['#contextual_links'] )) {
+		$variables ['title_suffix'] ['contextual_links'] = contextual_links_view ( $element );
+		if (! empty ( $variables ['title_suffix'] ['contextual_links'] )) {
+			$variables ['classes_array'] [] = 'contextual-links-region';
+		}
+	}
 }
 
 /**
@@ -153,13 +152,15 @@ function hook_preprocess(&$variables, $hook) {
  *
  * For more detailed information, see theme().
  *
- * @param $variables
- *   The variables array (modify in place).
+ * @param $variables The
+ *        	variables array (modify in place).
  */
 function hook_preprocess_HOOK(&$variables) {
-  // This example is from rdf_preprocess_image(). It adds an RDF attribute
-  // to the image hook's variables.
-  $variables['attributes']['typeof'] = array('foaf:Image');
+	// This example is from rdf_preprocess_image(). It adds an RDF attribute
+	// to the image hook's variables.
+	$variables ['attributes'] ['typeof'] = array (
+			'foaf:Image' 
+	);
 }
 
 /**
@@ -173,23 +174,27 @@ function hook_preprocess_HOOK(&$variables) {
  *
  * For more detailed information, see theme().
  *
- * @param $variables
- *   The variables array (modify in place).
- * @param $hook
- *   The name of the theme hook.
+ * @param $variables The
+ *        	variables array (modify in place).
+ * @param $hook The
+ *        	name of the theme hook.
  */
 function hook_process(&$variables, $hook) {
-  // Wraps variables in RDF wrappers.
-  if (!empty($variables['rdf_template_variable_attributes_array'])) {
-    foreach ($variables['rdf_template_variable_attributes_array'] as $variable_name => $attributes) {
-      $context = array(
-        'hook' => $hook,
-        'variable_name' => $variable_name,
-        'variables' => $variables,
-      );
-      $variables[$variable_name] = theme('rdf_template_variable_wrapper', array('content' => $variables[$variable_name], 'attributes' => $attributes, 'context' => $context));
-    }
-  }
+	// Wraps variables in RDF wrappers.
+	if (! empty ( $variables ['rdf_template_variable_attributes_array'] )) {
+		foreach ( $variables ['rdf_template_variable_attributes_array'] as $variable_name => $attributes ) {
+			$context = array (
+					'hook' => $hook,
+					'variable_name' => $variable_name,
+					'variables' => $variables 
+			);
+			$variables [$variable_name] = theme ( 'rdf_template_variable_wrapper', array (
+					'content' => $variables [$variable_name],
+					'attributes' => $attributes,
+					'context' => $context 
+			) );
+		}
+	}
 }
 
 /**
@@ -201,40 +206,40 @@ function hook_process(&$variables, $hook) {
  *
  * For more detailed information, see theme().
  *
- * @param $variables
- *   The variables array (modify in place).
+ * @param $variables The
+ *        	variables array (modify in place).
  */
 function hook_process_HOOK(&$variables) {
-  // @todo There are no use-cases in Drupal core for this hook. Find one from a
-  //   contributed module, or come up with a good example. Coming up with a good
-  //   example might be tough, since the intent is for nearly everything to be
-  //   achievable via preprocess functions, and for process functions to only be
-  //   used when requiring the later execution time.
+	// @todo There are no use-cases in Drupal core for this hook. Find one from a
+	// contributed module, or come up with a good example. Coming up with a good
+	// example might be tough, since the intent is for nearly everything to be
+	// achievable via preprocess functions, and for process functions to only be
+	// used when requiring the later execution time.
 }
 
 /**
  * Respond to themes being enabled.
  *
  * @param array $theme_list
- *   Array containing the names of the themes being enabled.
- *
+ *        	Array containing the names of the themes being enabled.
+ *        	
  * @see theme_enable()
  */
 function hook_themes_enabled($theme_list) {
-  foreach ($theme_list as $theme) {
-    block_theme_initialize($theme);
-  }
+	foreach ( $theme_list as $theme ) {
+		block_theme_initialize ( $theme );
+	}
 }
 
 /**
  * Respond to themes being disabled.
  *
  * @param array $theme_list
- *   Array containing the names of the themes being disabled.
- *
+ *        	Array containing the names of the themes being disabled.
+ *        	
  * @see theme_disable()
  */
 function hook_themes_disabled($theme_list) {
- // Clear all update module caches.
-  _update_cache_clear();
+	// Clear all update module caches.
+	_update_cache_clear ();
 }

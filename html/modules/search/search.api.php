@@ -28,22 +28,21 @@
  * You can use hook_search_access() to limit access to searching,
  * and hook_search_page() to override how search results are displayed.
  *
- * @return
- *   Array with optional keys:
- *   - title: Title for the tab on the search page for this module. Defaults
- *     to the module name if not given.
- *   - path: Path component after 'search/' for searching with this module.
- *     Defaults to the module name if not given.
- *   - conditions_callback: An implementation of callback_search_conditions().
- *
- * @ingroup search
+ * @return Array with optional keys:
+ *         - title: Title for the tab on the search page for this module. Defaults
+ *         to the module name if not given.
+ *         - path: Path component after 'search/' for searching with this module.
+ *         Defaults to the module name if not given.
+ *         - conditions_callback: An implementation of callback_search_conditions().
+ *        
+ *         @ingroup search
  */
 function hook_search_info() {
-  return array(
-    'title' => 'Content',
-    'path' => 'node',
-    'conditions_callback' => 'callback_search_conditions',
-  );
+	return array (
+			'title' => 'Content',
+			'path' => 'node',
+			'conditions_callback' => 'callback_search_conditions' 
+	);
 }
 
 /**
@@ -54,7 +53,7 @@ function hook_search_info() {
  * @ingroup search
  */
 function hook_search_access() {
-  return user_access('access content');
+	return user_access ( 'access content' );
 }
 
 /**
@@ -67,10 +66,9 @@ function hook_search_access() {
  * @ingroup search
  */
 function hook_search_reset() {
-  db_update('search_dataset')
-    ->fields(array('reindex' => REQUEST_TIME))
-    ->condition('type', 'node')
-    ->execute();
+	db_update ( 'search_dataset' )->fields ( array (
+			'reindex' => REQUEST_TIME 
+	) )->condition ( 'type', 'node' )->execute ();
 }
 
 /**
@@ -80,49 +78,50 @@ function hook_search_reset() {
  * Implementing modules do not need to check whether they are active when
  * calculating their return values.
  *
- * @return
- *  An associative array with the key-value pairs:
- *  - 'remaining': The number of items left to index.
- *  - 'total': The total number of items to index.
- *
- * @ingroup search
+ * @return An associative array with the key-value pairs:
+ *         - 'remaining': The number of items left to index.
+ *         - 'total': The total number of items to index.
+ *        
+ *         @ingroup search
  */
 function hook_search_status() {
-  $total = db_query('SELECT COUNT(*) FROM {node} WHERE status = 1')->fetchField();
-  $remaining = db_query("SELECT COUNT(*) FROM {node} n LEFT JOIN {search_dataset} d ON d.type = 'node' AND d.sid = n.nid WHERE n.status = 1 AND d.sid IS NULL OR d.reindex <> 0")->fetchField();
-  return array('remaining' => $remaining, 'total' => $total);
+	$total = db_query ( 'SELECT COUNT(*) FROM {node} WHERE status = 1' )->fetchField ();
+	$remaining = db_query ( "SELECT COUNT(*) FROM {node} n LEFT JOIN {search_dataset} d ON d.type = 'node' AND d.sid = n.nid WHERE n.status = 1 AND d.sid IS NULL OR d.reindex <> 0" )->fetchField ();
+	return array (
+			'remaining' => $remaining,
+			'total' => $total 
+	);
 }
 
 /**
  * Add elements to the search settings form.
  *
- * @return
- *   Form array for the Search settings page at admin/config/search/settings.
- *
- * @ingroup search
+ * @return Form array for the Search settings page at admin/config/search/settings.
+ *        
+ *         @ingroup search
  */
 function hook_search_admin() {
-  // Output form for defining rank factor weights.
-  $form['content_ranking'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Content ranking'),
-  );
-  $form['content_ranking']['#theme'] = 'node_search_admin';
-  $form['content_ranking']['info'] = array(
-    '#value' => '<em>' . t('The following numbers control which properties the content search should favor when ordering the results. Higher numbers mean more influence, zero means the property is ignored. Changing these numbers does not require the search index to be rebuilt. Changes take effect immediately.') . '</em>'
-  );
-
-  // Note: reversed to reflect that higher number = higher ranking.
-  $options = drupal_map_assoc(range(0, 10));
-  foreach (module_invoke_all('ranking') as $var => $values) {
-    $form['content_ranking']['factors']['node_rank_' . $var] = array(
-      '#title' => $values['title'],
-      '#type' => 'select',
-      '#options' => $options,
-      '#default_value' => variable_get('node_rank_' . $var, 0),
-    );
-  }
-  return $form;
+	// Output form for defining rank factor weights.
+	$form ['content_ranking'] = array (
+			'#type' => 'fieldset',
+			'#title' => t ( 'Content ranking' ) 
+	);
+	$form ['content_ranking'] ['#theme'] = 'node_search_admin';
+	$form ['content_ranking'] ['info'] = array (
+			'#value' => '<em>' . t ( 'The following numbers control which properties the content search should favor when ordering the results. Higher numbers mean more influence, zero means the property is ignored. Changing these numbers does not require the search index to be rebuilt. Changes take effect immediately.' ) . '</em>' 
+	);
+	
+	// Note: reversed to reflect that higher number = higher ranking.
+	$options = drupal_map_assoc ( range ( 0, 10 ) );
+	foreach ( module_invoke_all ( 'ranking' ) as $var => $values ) {
+		$form ['content_ranking'] ['factors'] ['node_rank_' . $var] = array (
+				'#title' => $values ['title'],
+				'#type' => 'select',
+				'#options' => $options,
+				'#default_value' => variable_get ( 'node_rank_' . $var, 0 ) 
+		);
+	}
+	return $form;
 }
 
 /**
@@ -144,80 +143,80 @@ function hook_search_admin() {
  * index, and user_search_execute() for an example that doesn't use the search
  * index.
  *
- * @param $keys
- *   The search keywords as entered by the user.
- * @param $conditions
- *   An optional array of additional conditions, such as filters.
- *
- * @return
- *   An array of search results. To use the default search result
- *   display, each item should have the following keys':
- *   - 'link': Required. The URL of the found item.
- *   - 'type': The type of item (such as the content type).
- *   - 'title': Required. The name of the item.
- *   - 'user': The author of the item.
- *   - 'date': A timestamp when the item was last modified.
- *   - 'extra': An array of optional extra information items.
- *   - 'snippet': An excerpt or preview to show with the result (can be
- *     generated with search_excerpt()).
- *   - 'language': Language code for the item (usually two characters).
- *
- * @ingroup search
+ * @param $keys The
+ *        	search keywords as entered by the user.
+ * @param $conditions An
+ *        	optional array of additional conditions, such as filters.
+ *        	
+ * @return An array of search results. To use the default search result
+ *         display, each item should have the following keys':
+ *         - 'link': Required. The URL of the found item.
+ *         - 'type': The type of item (such as the content type).
+ *         - 'title': Required. The name of the item.
+ *         - 'user': The author of the item.
+ *         - 'date': A timestamp when the item was last modified.
+ *         - 'extra': An array of optional extra information items.
+ *         - 'snippet': An excerpt or preview to show with the result (can be
+ *         generated with search_excerpt()).
+ *         - 'language': Language code for the item (usually two characters).
+ *        
+ *         @ingroup search
  */
 function hook_search_execute($keys = NULL, $conditions = NULL) {
-  // Build matching conditions
-  $query = db_select('search_index', 'i', array('target' => 'slave'))->extend('SearchQuery')->extend('PagerDefault');
-  $query->join('node', 'n', 'n.nid = i.sid');
-  $query
-    ->condition('n.status', 1)
-    ->addTag('node_access')
-    ->searchExpression($keys, 'node');
-
-  // Insert special keywords.
-  $query->setOption('type', 'n.type');
-  $query->setOption('language', 'n.language');
-  if ($query->setOption('term', 'ti.tid')) {
-    $query->join('taxonomy_index', 'ti', 'n.nid = ti.nid');
-  }
-  // Only continue if the first pass query matches.
-  if (!$query->executeFirstPass()) {
-    return array();
-  }
-
-  // Add the ranking expressions.
-  _node_rankings($query);
-
-  // Load results.
-  $find = $query
-    ->limit(10)
-    ->execute();
-  $results = array();
-  foreach ($find as $item) {
-    // Build the node body.
-    $node = node_load($item->sid);
-    node_build_content($node, 'search_result');
-    $node->body = drupal_render($node->content);
-
-    // Fetch comments for snippet.
-    $node->rendered .= ' ' . module_invoke('comment', 'node_update_index', $node);
-    // Fetch terms for snippet.
-    $node->rendered .= ' ' . module_invoke('taxonomy', 'node_update_index', $node);
-
-    $extra = module_invoke_all('node_search_result', $node);
-
-    $results[] = array(
-      'link' => url('node/' . $item->sid, array('absolute' => TRUE)),
-      'type' => check_plain(node_type_get_name($node)),
-      'title' => $node->title,
-      'user' => theme('username', array('account' => $node)),
-      'date' => $node->changed,
-      'node' => $node,
-      'extra' => $extra,
-      'score' => $item->calculated_score,
-      'snippet' => search_excerpt($keys, $node->body),
-    );
-  }
-  return $results;
+	// Build matching conditions
+	$query = db_select ( 'search_index', 'i', array (
+			'target' => 'slave' 
+	) )->extend ( 'SearchQuery' )->extend ( 'PagerDefault' );
+	$query->join ( 'node', 'n', 'n.nid = i.sid' );
+	$query->condition ( 'n.status', 1 )->addTag ( 'node_access' )->searchExpression ( $keys, 'node' );
+	
+	// Insert special keywords.
+	$query->setOption ( 'type', 'n.type' );
+	$query->setOption ( 'language', 'n.language' );
+	if ($query->setOption ( 'term', 'ti.tid' )) {
+		$query->join ( 'taxonomy_index', 'ti', 'n.nid = ti.nid' );
+	}
+	// Only continue if the first pass query matches.
+	if (! $query->executeFirstPass ()) {
+		return array ();
+	}
+	
+	// Add the ranking expressions.
+	_node_rankings ( $query );
+	
+	// Load results.
+	$find = $query->limit ( 10 )->execute ();
+	$results = array ();
+	foreach ( $find as $item ) {
+		// Build the node body.
+		$node = node_load ( $item->sid );
+		node_build_content ( $node, 'search_result' );
+		$node->body = drupal_render ( $node->content );
+		
+		// Fetch comments for snippet.
+		$node->rendered .= ' ' . module_invoke ( 'comment', 'node_update_index', $node );
+		// Fetch terms for snippet.
+		$node->rendered .= ' ' . module_invoke ( 'taxonomy', 'node_update_index', $node );
+		
+		$extra = module_invoke_all ( 'node_search_result', $node );
+		
+		$results [] = array (
+				'link' => url ( 'node/' . $item->sid, array (
+						'absolute' => TRUE 
+				) ),
+				'type' => check_plain ( node_type_get_name ( $node ) ),
+				'title' => $node->title,
+				'user' => theme ( 'username', array (
+						'account' => $node 
+				) ),
+				'date' => $node->changed,
+				'node' => $node,
+				'extra' => $extra,
+				'score' => $item->calculated_score,
+				'snippet' => search_excerpt ( $keys, $node->body ) 
+		);
+	}
+	return $results;
 }
 
 /**
@@ -231,29 +230,28 @@ function hook_search_execute($keys = NULL, $conditions = NULL) {
  * work together to create an ordered list (OL). So your hook_search_page()
  * implementation should probably do this as well.
  *
- * @param $results
- *   An array of search results.
- *
- * @return
- *   A renderable array, which will render the formatted search results with a
- *   pager included.
- *
+ * @param $results An
+ *        	array of search results.
+ *        	
+ * @return A renderable array, which will render the formatted search results with a
+ *         pager included.
+ *        
  * @see search-result.tpl.php
  * @see search-results.tpl.php
  */
 function hook_search_page($results) {
-  $output['prefix']['#markup'] = '<ol class="search-results">';
-
-  foreach ($results as $entry) {
-    $output[] = array(
-      '#theme' => 'search_result',
-      '#result' => $entry,
-      '#module' => 'my_module_name',
-    );
-  }
-  $output['suffix']['#markup'] = '</ol>' . theme('pager');
-
-  return $output;
+	$output ['prefix'] ['#markup'] = '<ol class="search-results">';
+	
+	foreach ( $results as $entry ) {
+		$output [] = array (
+				'#theme' => 'search_result',
+				'#result' => $entry,
+				'#module' => 'my_module_name' 
+		);
+	}
+	$output ['suffix'] ['#markup'] = '</ol>' . theme ( 'pager' );
+	
+	return $output;
 }
 
 /**
@@ -265,24 +263,23 @@ function hook_search_page($results) {
  * Possible uses:
  * - Adding spaces between words of Chinese or Japanese text.
  * - Stemming words down to their root words to allow matches between, for
- *   instance, walk, walked, walking, and walks in searching.
+ * instance, walk, walked, walking, and walks in searching.
  * - Expanding abbreviations and acronymns that occur in text.
  *
- * @param $text
- *   The text to preprocess. This is a single piece of plain text extracted
- *   from between two HTML tags or from the search query. It will not contain
- *   any HTML entities or HTML tags.
- *
- * @return
- *   The text after preprocessing. Note that if your module decides not to alter
- *   the text, it should return the original text. Also, after preprocessing,
- *   words in the text should be separated by a space.
- *
- * @ingroup search
+ * @param $text The
+ *        	text to preprocess. This is a single piece of plain text extracted
+ *        	from between two HTML tags or from the search query. It will not contain
+ *        	any HTML entities or HTML tags.
+ *        	
+ * @return The text after preprocessing. Note that if your module decides not to alter
+ *         the text, it should return the original text. Also, after preprocessing,
+ *         words in the text should be separated by a space.
+ *        
+ *         @ingroup search
  */
 function hook_search_preprocess($text) {
-  // Do processing on $text
-  return $text;
+	// Do processing on $text
+	return $text;
 }
 
 /**
@@ -306,32 +303,32 @@ function hook_search_preprocess($text) {
  * @ingroup search
  */
 function hook_update_index() {
-  $limit = (int)variable_get('search_cron_limit', 100);
-
-  $result = db_query_range("SELECT n.nid FROM {node} n LEFT JOIN {search_dataset} d ON d.type = 'node' AND d.sid = n.nid WHERE d.sid IS NULL OR d.reindex <> 0 ORDER BY d.reindex ASC, n.nid ASC", 0, $limit);
-
-  foreach ($result as $node) {
-    $node = node_load($node->nid);
-
-    // Save the changed time of the most recent indexed node, for the search
-    // results half-life calculation.
-    variable_set('node_cron_last', $node->changed);
-
-    // Render the node.
-    node_build_content($node, 'search_index');
-    $node->rendered = drupal_render($node->content);
-
-    $text = '<h1>' . check_plain($node->title) . '</h1>' . $node->rendered;
-
-    // Fetch extra data normally not visible
-    $extra = module_invoke_all('node_update_index', $node);
-    foreach ($extra as $t) {
-      $text .= $t;
-    }
-
-    // Update index
-    search_index($node->nid, 'node', $text);
-  }
+	$limit = ( int ) variable_get ( 'search_cron_limit', 100 );
+	
+	$result = db_query_range ( "SELECT n.nid FROM {node} n LEFT JOIN {search_dataset} d ON d.type = 'node' AND d.sid = n.nid WHERE d.sid IS NULL OR d.reindex <> 0 ORDER BY d.reindex ASC, n.nid ASC", 0, $limit );
+	
+	foreach ( $result as $node ) {
+		$node = node_load ( $node->nid );
+		
+		// Save the changed time of the most recent indexed node, for the search
+		// results half-life calculation.
+		variable_set ( 'node_cron_last', $node->changed );
+		
+		// Render the node.
+		node_build_content ( $node, 'search_index' );
+		$node->rendered = drupal_render ( $node->content );
+		
+		$text = '<h1>' . check_plain ( $node->title ) . '</h1>' . $node->rendered;
+		
+		// Fetch extra data normally not visible
+		$extra = module_invoke_all ( 'node_update_index', $node );
+		foreach ( $extra as $t ) {
+			$text .= $t;
+		}
+		
+		// Update index
+		search_index ( $node->nid, 'node', $text );
+	}
 }
 /**
  * @} End of "addtogroup hooks".
@@ -351,26 +348,25 @@ function hook_update_index() {
  * (i.e. from the query string of the request). The conditions may also be
  * generated internally - for example based on a module's settings.
  *
- * @param $keys
- *   The search keywords string.
- *
- * @return
- *   An array of additional conditions, such as filters.
- *
- * @ingroup callbacks
- * @ingroup search
+ * @param $keys The
+ *        	search keywords string.
+ *        	
+ * @return An array of additional conditions, such as filters.
+ *        
+ *         @ingroup callbacks
+ *         @ingroup search
  */
 function callback_search_conditions($keys) {
-  $conditions = array();
-
-  if (!empty($_REQUEST['keys'])) {
-    $conditions['keys'] = $_REQUEST['keys'];
-  }
-  if (!empty($_REQUEST['sample_search_keys'])) {
-    $conditions['sample_search_keys'] = $_REQUEST['sample_search_keys'];
-  }
-  if ($force_keys = config('sample_search.settings')->get('force_keywords')) {
-    $conditions['sample_search_force_keywords'] = $force_keys;
-  }
-  return $conditions;
+	$conditions = array ();
+	
+	if (! empty ( $_REQUEST ['keys'] )) {
+		$conditions ['keys'] = $_REQUEST ['keys'];
+	}
+	if (! empty ( $_REQUEST ['sample_search_keys'] )) {
+		$conditions ['sample_search_keys'] = $_REQUEST ['sample_search_keys'];
+	}
+	if ($force_keys = config ( 'sample_search.settings' )->get ( 'force_keywords' )) {
+		$conditions ['sample_search_force_keywords'] = $force_keys;
+	}
+	return $conditions;
 }

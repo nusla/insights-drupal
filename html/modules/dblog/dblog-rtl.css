@@ -2,10 +2,8 @@
  * @file
  * Right-to-Left styling for the Database Logging module.
  */
-
-.form-item-type,
-.form-item-severity {
-  float: right;
-  padding-right: 0;
-  padding-left: .8em;
+.form-item-type, .form-item-severity {
+	float: right;
+	padding-right: 0;
+	padding-left: .8em;
 }

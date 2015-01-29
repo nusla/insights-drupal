@@ -1,0 +1,20 @@
+<?php
+
+function actuos_portal_menu() {
+	$menu['settings'] = array (
+			'title' => 'Settings',
+			'page callback' => '_actuos_portal_menu_settings_callback',
+			'menu_name' => 'system-menu',
+			'type' => MENU_NORMAL_ITEM,
+	);
+	$menu['logged_out'] = array	(
+			'title' => 'Log Out',
+			'menu_name' => 'menu-system-menu',
+			'type' => MENU_NORMAL_ITEM,
+	);
+	return $menu;
+}
+
+function _actuos_portal_menu_settings_callback(){
+	return array();
+}

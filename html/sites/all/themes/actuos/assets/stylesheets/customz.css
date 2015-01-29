@@ -1,0 +1,155 @@
+.header {
+    position: static;
+    height: 100px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.dashnav {
+    width: 100%;
+    border-radius: 0;
+}
+
+ul#redmenu, ul#greenmenu, ul#blumenu, ul#yellowmenu {
+    position: relative;
+    margin-top: 2%;
+}
+
+ul#redmenu li, ul#greenmenu li, ul#blumenu li, ul#yellowmenu li {
+    padding-right: 30px;
+}
+
+ul#redmenu li a, ul#greenmenu li a, ul#blumenu li a, ul#yellowmenu li a {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+ul#redmenu li a:hover, ul#redmenu li a:focus {
+    color: #333;
+    border-bottom: 3px solid #e74c3c;
+}
+
+ul#greenmenu li a:hover, ul#greenmenu li a:focus {
+    color: #333;
+    border-bottom: 3px solid #1abc9c;
+}
+
+ul#blumenu li a:hover, ul#blumenu li a:focus {
+    color: #333;
+    border-bottom: 3px solid #3498db;
+}
+
+ul#yellowmenu li a:hover, ul#yellowmenu li a:focus {
+    color: #333;
+    border-bottom: 3px solid #f1c40f;
+}
+
+
+.red-bg {
+    top: -60px;
+    left: 65px;
+    background: #e74c3c;
+}
+
+.green-bg {
+    top: -60px;
+    left: 65px;
+    background: #1abc9c;
+}
+
+.blu-bg {
+    top: -60px;
+    left: 65px;
+    background: #3498db;
+}
+
+.yellow-bg {
+    top: -60px;
+    left: 65px;
+    background: #f1c40f;
+}
+
+
+h3.menu_ttl {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-left: 15px;
+    color: #ccc;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+
+.leftarea {
+    position: relative;
+    display: inline-block;
+    float: left;
+    top: 15%;
+}
+
+.ritearea {
+    position: relative;
+    display: inline-block;
+    float: right;
+    top: 15%;
+    right: 7%;
+}
+
+.header_icon {
+    position: relative;
+    line-height: 2.6;
+    float: left;
+    color: #ffffff;
+    font-size: 2.5rem;
+}
+
+.header_ttl {
+    position: relative;
+    font-size: 2.5rem;
+    left: 5%;
+    font-weight: 300;
+    color: #ffffff;
+    float: left;
+}
+
+.header_subttl {
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #ffffff;
+    float: left;
+}
+
+
+a#red .fa-pie-chart {font-size: 2.4rem;}
+a#red:hover, a#red:focus, a#red.active .fa-pie-chart {color: #e74c3c;}
+
+a#green .fa-bar-chart {font-size: 2.4rem;}
+a#green:hover, a#green:focus, a#green.active .fa-bar-chart {color: #1abc9c;}
+
+a#blu .fa-dollar {font-size: 2.4rem;}
+a#blu:hover, a#blu:focus, a#blu.active .fa-dollar {color: #3498db;}
+
+a#yellow .fa-connectdevelop {font-size: 2.4rem;}
+a#yellow:hover, a#yellow:focus, a#yellow.active .fa-connectdevelop {color: #f1c40f;}
+
+
+
+
+
+
+
+
+
+
+
+/* >>>>>>>>>> MQ <<<<<<<<< */

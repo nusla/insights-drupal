@@ -1,8 +1,9 @@
 .dev-query, .dev-timer, .dev-memory-usage {
-  align: left;
-  direction: ltr;
-  padding-top: inherit;
+	align: left;
+	direction: ltr;
+	padding-top: inherit;
 }
+
 .dev-query, .dev-timer, .dev-memory-usage table {
-  direction: ltr;
+	direction: ltr;
 }

@@ -56,7 +56,7 @@
  * Database settings:
  *
  * The $databases array specifies the database connection or
- * connections that Drupal may use.  Drupal is able to connect
+ * connections that Drupal may use. Drupal is able to connect
  * to multiple databases, including multiple types of databases,
  * during the same request.
  *
@@ -64,23 +64,23 @@
  * similar to the following:
  * @code
  * array(
- *   'driver' => 'mysql',
- *   'database' => 'databasename',
- *   'username' => 'username',
- *   'password' => 'password',
- *   'host' => 'localhost',
- *   'port' => 3306,
- *   'prefix' => 'myprefix_',
- *   'collation' => 'utf8_general_ci',
+ * 'driver' => 'mysql',
+ * 'database' => 'databasename',
+ * 'username' => 'username',
+ * 'password' => 'password',
+ * 'host' => 'localhost',
+ * 'port' => 3306,
+ * 'prefix' => 'myprefix_',
+ * 'collation' => 'utf8_general_ci',
  * );
  * @endcode
  *
  * The "driver" property indicates what Drupal database driver the
- * connection should use.  This is usually the same as the name of the
- * database type, such as mysql or sqlite, but not always.  The other
- * properties will vary depending on the driver.  For SQLite, you must
+ * connection should use. This is usually the same as the name of the
+ * database type, such as mysql or sqlite, but not always. The other
+ * properties will vary depending on the driver. For SQLite, you must
  * specify a database file name in a directory that is writable by the
- * webserver.  For most other drivers, you must specify a
+ * webserver. For most other drivers, you must specify a
  * username, password, host, and database name.
  *
  * Transaction support is enabled by default for all drivers that support it,
@@ -108,21 +108,21 @@
  *
  * In the above example, $info_array is an array of settings described above.
  * The first line sets a "default" database that has one master database
- * (the second level default).  The second and third lines create an array
- * of potential slave databases.  Drupal will select one at random for a given
- * request as needed.  The fourth line creates a new database with a name of
+ * (the second level default). The second and third lines create an array
+ * of potential slave databases. Drupal will select one at random for a given
+ * request as needed. The fourth line creates a new database with a name of
  * "extra".
  *
  * For a single database configuration, the following is sufficient:
  * @code
  * $databases['default']['default'] = array(
- *   'driver' => 'mysql',
- *   'database' => 'databasename',
- *   'username' => 'username',
- *   'password' => 'password',
- *   'host' => 'localhost',
- *   'prefix' => 'main_',
- *   'collation' => 'utf8_general_ci',
+ * 'driver' => 'mysql',
+ * 'database' => 'databasename',
+ * 'username' => 'username',
+ * 'password' => 'password',
+ * 'host' => 'localhost',
+ * 'prefix' => 'main_',
+ * 'collation' => 'utf8_general_ci',
  * );
  * @endcode
  *
@@ -134,20 +134,20 @@
  *
  * To have all database names prefixed, set 'prefix' as a string:
  * @code
- *   'prefix' => 'main_',
+ * 'prefix' => 'main_',
  * @endcode
  * To provide prefixes for specific tables, set 'prefix' as an array.
  * The array's keys are the table names and the values are the prefixes.
  * The 'default' element is mandatory and holds the prefix for any tables
  * not specified elsewhere in the array. Example:
  * @code
- *   'prefix' => array(
- *     'default'   => 'main_',
- *     'users'     => 'shared_',
- *     'sessions'  => 'shared_',
- *     'role'      => 'shared_',
- *     'authmap'   => 'shared_',
- *   ),
+ * 'prefix' => array(
+ * 'default' => 'main_',
+ * 'users' => 'shared_',
+ * 'sessions' => 'shared_',
+ * 'role' => 'shared_',
+ * 'authmap' => 'shared_',
+ * ),
  * @endcode
  * You can also use a reference to a schema/database as a prefix. This may be
  * useful if your Drupal installation exists in a schema that is not the default
@@ -155,13 +155,13 @@
  * time.
  * Example:
  * @code
- *   'prefix' => array(
- *     'default'   => 'main.',
- *     'users'     => 'shared.',
- *     'sessions'  => 'shared.',
- *     'role'      => 'shared.',
- *     'authmap'   => 'shared.',
- *   );
+ * 'prefix' => array(
+ * 'default' => 'main.',
+ * 'users' => 'shared.',
+ * 'sessions' => 'shared.',
+ * 'role' => 'shared.',
+ * 'authmap' => 'shared.',
+ * );
  * @endcode
  * NOTE: MySQL and SQLite's definition of a schema is a database.
  *
@@ -172,12 +172,12 @@
  *
  * @code
  * $databases['default']['default'] = array(
- *   'init_commands' => array(
- *     'big_selects' => 'SET SQL_BIG_SELECTS=1',
- *   ),
- *   'pdo' => array(
- *     PDO::ATTR_TIMEOUT => 5,
- *   ),
+ * 'init_commands' => array(
+ * 'big_selects' => 'SET SQL_BIG_SELECTS=1',
+ * ),
+ * 'pdo' => array(
+ * PDO::ATTR_TIMEOUT => 5,
+ * ),
  * );
  * @endcode
  *
@@ -186,33 +186,31 @@
  *
  * @see DatabaseConnection_mysql::__construct
  * @see DatabaseConnection_pgsql::__construct
- * @see DatabaseConnection_sqlite::__construct
- *
- * Database configuration format:
- * @code
- *   $databases['default']['default'] = array(
- *     'driver' => 'mysql',
- *     'database' => 'databasename',
- *     'username' => 'username',
- *     'password' => 'password',
- *     'host' => 'localhost',
- *     'prefix' => '',
- *   );
- *   $databases['default']['default'] = array(
- *     'driver' => 'pgsql',
- *     'database' => 'databasename',
- *     'username' => 'username',
- *     'password' => 'password',
- *     'host' => 'localhost',
- *     'prefix' => '',
- *   );
- *   $databases['default']['default'] = array(
- *     'driver' => 'sqlite',
- *     'database' => '/path/to/databasefilename',
- *   );
- * @endcode
+ * @see DatabaseConnection_sqlite::__construct Database configuration format:
+ *      @code
+ *      $databases['default']['default'] = array(
+ *      'driver' => 'mysql',
+ *      'database' => 'databasename',
+ *      'username' => 'username',
+ *      'password' => 'password',
+ *      'host' => 'localhost',
+ *      'prefix' => '',
+ *      );
+ *      $databases['default']['default'] = array(
+ *      'driver' => 'pgsql',
+ *      'database' => 'databasename',
+ *      'username' => 'username',
+ *      'password' => 'password',
+ *      'host' => 'localhost',
+ *      'prefix' => '',
+ *      );
+ *      $databases['default']['default'] = array(
+ *      'driver' => 'sqlite',
+ *      'database' => '/path/to/databasefilename',
+ *      );
+ *      @endcode
  */
-$databases = array();
+$databases = array ();
 
 /**
  * Access control for update.php script.
@@ -241,8 +239,7 @@ $update_free_access = FALSE;
  * with any backups of your Drupal files and database.
  *
  * Example:
- *   $drupal_hash_salt = file_get_contents('/home/example/salt.txt');
- *
+ * $drupal_hash_salt = file_get_contents('/home/example/salt.txt');
  */
 $drupal_hash_salt = '';
 
@@ -258,15 +255,15 @@ $drupal_hash_salt = '';
  * See the .htaccess file for more information.
  *
  * Examples:
- *   $base_url = 'http://www.example.com';
- *   $base_url = 'http://www.example.com:8888';
- *   $base_url = 'http://www.example.com/drupal';
- *   $base_url = 'https://www.example.com:8888/drupal';
+ * $base_url = 'http://www.example.com';
+ * $base_url = 'http://www.example.com:8888';
+ * $base_url = 'http://www.example.com/drupal';
+ * $base_url = 'https://www.example.com:8888/drupal';
  *
  * It is not allowed to have a trailing slash; Drupal will add it
  * for you.
  */
-# $base_url = 'http://www.example.com';  // NO trailing slash!
+// $base_url = 'http://www.example.com'; // NO trailing slash!
 
 /**
  * PHP settings:
@@ -281,49 +278,54 @@ $drupal_hash_salt = '';
 
 /**
  * Some distributions of Linux (most notably Debian) ship their PHP
- * installations with garbage collection (gc) disabled. Since Drupal depends on
+ * installations with garbage collection (gc) disabled.
+ * Since Drupal depends on
  * PHP's garbage collection for clearing sessions, ensure that garbage
  * collection occurs by using the most common settings.
  */
-ini_set('session.gc_probability', 1);
-ini_set('session.gc_divisor', 100);
+ini_set ( 'session.gc_probability', 1 );
+ini_set ( 'session.gc_divisor', 100 );
 
 /**
- * Set session lifetime (in seconds), i.e. the time from the user's last visit
+ * Set session lifetime (in seconds), i.e.
+ * the time from the user's last visit
  * to the active session may be deleted by the session garbage collector. When
  * a session is deleted, authenticated users are logged out, and the contents
  * of the user's $_SESSION variable is discarded.
  */
-ini_set('session.gc_maxlifetime', 200000);
+ini_set ( 'session.gc_maxlifetime', 200000 );
 
 /**
- * Set session cookie lifetime (in seconds), i.e. the time from the session is
+ * Set session cookie lifetime (in seconds), i.e.
+ * the time from the session is
  * created to the cookie expires, i.e. when the browser is expected to discard
  * the cookie. The value 0 means "until the browser is closed".
  */
-ini_set('session.cookie_lifetime', 2000000);
+ini_set ( 'session.cookie_lifetime', 2000000 );
 
 /**
  * If you encounter a situation where users post a large amount of text, and
  * the result is stripped out upon viewing but can still be edited, Drupal's
- * output filter may not have sufficient memory to process it.  If you
+ * output filter may not have sufficient memory to process it.
+ * If you
  * experience this issue, you may wish to uncomment the following two lines
- * and increase the limits of these variables.  For more information, see
+ * and increase the limits of these variables. For more information, see
  * http://php.net/manual/pcre.configuration.php.
  */
-# ini_set('pcre.backtrack_limit', 200000);
-# ini_set('pcre.recursion_limit', 200000);
+// ini_set('pcre.backtrack_limit', 200000);
+// ini_set('pcre.recursion_limit', 200000);
 
 /**
  * Drupal automatically generates a unique session cookie name for each site
- * based on its full domain name. If you have multiple domains pointing at the
+ * based on its full domain name.
+ * If you have multiple domains pointing at the
  * same Drupal site, you can either redirect them all to a single domain (see
  * comment in .htaccess), or uncomment the line below and specify their shared
  * base domain. Doing so assures that users remain logged in as they cross
  * between your various domains. Make sure to always start the $cookie_domain
  * with a leading dot, as per RFC 2109.
  */
-# $cookie_domain = '.example.com';
+// $cookie_domain = '.example.com';
 
 /**
  * Variable overrides:
@@ -342,19 +344,20 @@ ini_set('session.cookie_lifetime', 2000000);
  * - anonymous: Defines the human-readable name of anonymous users.
  * Remove the leading hash signs to enable.
  */
-# $conf['site_name'] = 'My Drupal site';
-# $conf['theme_default'] = 'garland';
-# $conf['anonymous'] = 'Visitor';
+// $conf['site_name'] = 'My Drupal site';
+// $conf['theme_default'] = 'garland';
+// $conf['anonymous'] = 'Visitor';
 
 /**
- * A custom theme can be set for the offline page. This applies when the site
+ * A custom theme can be set for the offline page.
+ * This applies when the site
  * is explicitly set to maintenance mode through the administration page or when
  * the database is inactive due to an error. It can be set through the
  * 'maintenance_theme' key. The template file should also be copied into the
  * theme. It is located inside 'modules/system/maintenance-page.tpl.php'.
  * Note: This setting does not apply to installation and update pages.
  */
-# $conf['maintenance_theme'] = 'bartik';
+// $conf['maintenance_theme'] = 'bartik';
 
 /**
  * Reverse Proxy Configuration:
@@ -387,19 +390,19 @@ ini_set('session.cookie_lifetime', 2000000);
  * Be aware, however, that it is likely that this would allow IP
  * address spoofing unless more advanced precautions are taken.
  */
-# $conf['reverse_proxy'] = TRUE;
+// $conf['reverse_proxy'] = TRUE;
 
 /**
  * Specify every reverse proxy IP address in your environment.
  * This setting is required if $conf['reverse_proxy'] is TRUE.
  */
-# $conf['reverse_proxy_addresses'] = array('a.b.c.d', ...);
+// $conf['reverse_proxy_addresses'] = array('a.b.c.d', ...);
 
 /**
  * Set this value if your proxy server sends the client IP in a header
  * other than X-Forwarded-For.
  */
-# $conf['reverse_proxy_header'] = 'HTTP_X_CLUSTER_CLIENT_IP';
+// $conf['reverse_proxy_header'] = 'HTTP_X_CLUSTER_CLIENT_IP';
 
 /**
  * Page caching:
@@ -417,7 +420,7 @@ ini_set('session.cookie_lifetime', 2000000);
  * HTTP proxy, and bypass the reverse proxy if one is used) in order to avoid
  * getting cached pages from the proxy.
  */
-# $conf['omit_vary_cookie'] = TRUE;
+// $conf['omit_vary_cookie'] = TRUE;
 
 /**
  * CSS/JS aggregated file gzip compression:
@@ -431,8 +434,8 @@ ini_set('session.cookie_lifetime', 2000000);
  * configured to cache and compress these files itself you may want to uncomment
  * one or both of the below lines, which will prevent gzip files being stored.
  */
-# $conf['css_gzip_compression'] = FALSE;
-# $conf['js_gzip_compression'] = FALSE;
+// $conf['css_gzip_compression'] = FALSE;
+// $conf['js_gzip_compression'] = FALSE;
 
 /**
  * Block caching:
@@ -444,7 +447,7 @@ ini_set('session.cookie_lifetime', 2000000);
  * be safe on your site and want to bypass this restriction, uncomment the line
  * below.
  */
-# $conf['block_cache_bypass_node_grants'] = TRUE;
+// $conf['block_cache_bypass_node_grants'] = TRUE;
 
 /**
  * String overrides:
@@ -455,13 +458,12 @@ ini_set('session.cookie_lifetime', 2000000);
  *
  * Remove the leading hash signs to enable.
  */
-# $conf['locale_custom_strings_en'][''] = array(
-#   'forum'      => 'Discussion board',
-#   '@count min' => '@count minutes',
-# );
+// $conf['locale_custom_strings_en'][''] = array(
+// 'forum' => 'Discussion board',
+// '@count min' => '@count minutes',
+// );
 
 /**
- *
  * IP blocking:
  *
  * To bypass database queries for denied IP addresses, use this setting.
@@ -479,9 +481,9 @@ ini_set('session.cookie_lifetime', 2000000);
  *
  * Remove the leading hash signs to enable.
  */
-# $conf['blocked_ips'] = array(
-#   'a.b.c.d',
-# );
+// $conf['blocked_ips'] = array(
+// 'a.b.c.d',
+// );
 
 /**
  * Fast 404 pages:
@@ -493,18 +495,18 @@ ini_set('session.cookie_lifetime', 2000000);
  * The options below return a simple, fast 404 page for URLs matching a
  * specific pattern:
  * - 404_fast_paths_exclude: A regular expression to match paths to exclude,
- *   such as images generated by image styles, or dynamically-resized images.
- *   If you need to add more paths, you can add '|path' to the expression.
+ * such as images generated by image styles, or dynamically-resized images.
+ * If you need to add more paths, you can add '|path' to the expression.
  * - 404_fast_paths: A regular expression to match paths that should return a
- *   simple 404 page, rather than the fully themed 404 page. If you don't have
- *   any aliases ending in htm or html you can add '|s?html?' to the expression.
+ * simple 404 page, rather than the fully themed 404 page. If you don't have
+ * any aliases ending in htm or html you can add '|s?html?' to the expression.
  * - 404_fast_html: The html to return for simple 404 pages.
  *
  * Add leading hash signs if you would like to disable this functionality.
  */
-$conf['404_fast_paths_exclude'] = '/\/(?:styles)\//';
-$conf['404_fast_paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
-$conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
+$conf ['404_fast_paths_exclude'] = '/\/(?:styles)\//';
+$conf ['404_fast_paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
+$conf ['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
 
 /**
  * By default the page request process will return a fast 404 page for missing

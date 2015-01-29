@@ -48,73 +48,72 @@
  * your filter to 'cache' => FALSE while developing, but be sure to remove that
  * setting if it's not needed, when you are no longer in development mode.
  *
- * @return
- *   An associative array of filters, whose keys are internal filter names,
- *   which should be unique and therefore prefixed with the name of the module.
- *   Each value is an associative array describing the filter, with the
- *   following elements (all are optional except as noted):
- *   - title: (required) An administrative summary of what the filter does.
- *   - description: Additional administrative information about the filter's
- *     behavior, if needed for clarification.
- *   - settings callback: The name of a function that returns configuration form
- *     elements for the filter. See callback_filter_settings() for details.
- *   - default settings: An associative array containing default settings for
- *     the filter, to be applied when the filter has not been configured yet.
- *   - prepare callback: The name of a function that escapes the content before
- *     the actual filtering happens. See callback_filter_prepare() for
- *     details.
- *   - process callback: (required) The name the function that performs the
- *     actual filtering. See callback_filter_process() for details.
- *   - cache (default TRUE): Specifies whether the filtered text can be cached.
- *     Note that setting this to FALSE makes the entire text format not
- *     cacheable, which may have an impact on the site's overall performance.
- *     See filter_format_allowcache() for details.
- *   - tips callback: The name of a function that returns end-user-facing filter
- *     usage guidelines for the filter. See callback_filter_tips() for
- *     details.
- *   - weight: A default weight for the filter in new text formats.
- *
+ * @return An associative array of filters, whose keys are internal filter names,
+ *         which should be unique and therefore prefixed with the name of the module.
+ *         Each value is an associative array describing the filter, with the
+ *         following elements (all are optional except as noted):
+ *         - title: (required) An administrative summary of what the filter does.
+ *         - description: Additional administrative information about the filter's
+ *         behavior, if needed for clarification.
+ *         - settings callback: The name of a function that returns configuration form
+ *         elements for the filter. See callback_filter_settings() for details.
+ *         - default settings: An associative array containing default settings for
+ *         the filter, to be applied when the filter has not been configured yet.
+ *         - prepare callback: The name of a function that escapes the content before
+ *         the actual filtering happens. See callback_filter_prepare() for
+ *         details.
+ *         - process callback: (required) The name the function that performs the
+ *         actual filtering. See callback_filter_process() for details.
+ *         - cache (default TRUE): Specifies whether the filtered text can be cached.
+ *         Note that setting this to FALSE makes the entire text format not
+ *         cacheable, which may have an impact on the site's overall performance.
+ *         See filter_format_allowcache() for details.
+ *         - tips callback: The name of a function that returns end-user-facing filter
+ *         usage guidelines for the filter. See callback_filter_tips() for
+ *         details.
+ *         - weight: A default weight for the filter in new text formats.
+ *        
  * @see filter_example.module
  * @see hook_filter_info_alter()
  */
 function hook_filter_info() {
-  $filters['filter_html'] = array(
-    'title' => t('Limit allowed HTML tags'),
-    'description' => t('Allows you to restrict the HTML tags the user can use. It will also remove harmful content such as JavaScript events, JavaScript URLs and CSS styles from those tags that are not removed.'),
-    'process callback' => '_filter_html',
-    'settings callback' => '_filter_html_settings',
-    'default settings' => array(
-      'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd>',
-      'filter_html_help' => 1,
-      'filter_html_nofollow' => 0,
-    ),
-    'tips callback' => '_filter_html_tips',
-  );
-  $filters['filter_autop'] = array(
-    'title' => t('Convert line breaks'),
-    'description' => t('Converts line breaks into HTML (i.e. &lt;br&gt; and &lt;p&gt;) tags.'),
-    'process callback' => '_filter_autop',
-    'tips callback' => '_filter_autop_tips',
-  );
-  return $filters;
+	$filters ['filter_html'] = array (
+			'title' => t ( 'Limit allowed HTML tags' ),
+			'description' => t ( 'Allows you to restrict the HTML tags the user can use. It will also remove harmful content such as JavaScript events, JavaScript URLs and CSS styles from those tags that are not removed.' ),
+			'process callback' => '_filter_html',
+			'settings callback' => '_filter_html_settings',
+			'default settings' => array (
+					'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd>',
+					'filter_html_help' => 1,
+					'filter_html_nofollow' => 0 
+			),
+			'tips callback' => '_filter_html_tips' 
+	);
+	$filters ['filter_autop'] = array (
+			'title' => t ( 'Convert line breaks' ),
+			'description' => t ( 'Converts line breaks into HTML (i.e. &lt;br&gt; and &lt;p&gt;) tags.' ),
+			'process callback' => '_filter_autop',
+			'tips callback' => '_filter_autop_tips' 
+	);
+	return $filters;
 }
 
 /**
  * Perform alterations on filter definitions.
  *
- * @param $info
- *   Array of information on filters exposed by hook_filter_info()
- *   implementations.
+ * @param $info Array
+ *        	of information on filters exposed by hook_filter_info()
+ *        	implementations.
  */
 function hook_filter_info_alter(&$info) {
-  // Replace the PHP evaluator process callback with an improved
-  // PHP evaluator provided by a module.
-  $info['php_code']['process callback'] = 'my_module_php_evaluator';
-
-  // Alter the default settings of the URL filter provided by core.
-  $info['filter_url']['default settings'] = array(
-    'filter_url_length' => 100,
-  );
+	// Replace the PHP evaluator process callback with an improved
+	// PHP evaluator provided by a module.
+	$info ['php_code'] ['process callback'] = 'my_module_php_evaluator';
+	
+	// Alter the default settings of the URL filter provided by core.
+	$info ['filter_url'] ['default settings'] = array (
+			'filter_url_length' => 100 
+	);
 }
 
 /**
@@ -137,38 +136,37 @@ function hook_filter_info_alter(&$info) {
  * per-text-format settings. In that case, the settings callback function
  * should provide a link to the separate settings page.
  *
- * @param $form
- *   The prepopulated form array of the filter administration form.
- * @param $form_state
- *   The state of the (entire) configuration form.
- * @param $filter
- *   The filter object containing the current settings for the given format,
- *   in $filter->settings.
- * @param $format
- *   The format object being configured.
- * @param $defaults
- *   The default settings for the filter, as defined in 'default settings' in
- *   hook_filter_info(). These should be combined with $filter->settings to
- *   define the form element defaults.
- * @param $filters
- *   The complete list of filter objects that are enabled for the given format.
- *
- * @return
- *   An array of form elements defining settings for the filter. Array keys
- *   should match the array keys in $filter->settings and $defaults.
- *
- * @ingroup callbacks
+ * @param $form The
+ *        	prepopulated form array of the filter administration form.
+ * @param $form_state The
+ *        	state of the (entire) configuration form.
+ * @param $filter The
+ *        	filter object containing the current settings for the given format,
+ *        	in $filter->settings.
+ * @param $format The
+ *        	format object being configured.
+ * @param $defaults The
+ *        	default settings for the filter, as defined in 'default settings' in
+ *        	hook_filter_info(). These should be combined with $filter->settings to
+ *        	define the form element defaults.
+ * @param $filters The
+ *        	complete list of filter objects that are enabled for the given format.
+ *        	
+ * @return An array of form elements defining settings for the filter. Array keys
+ *         should match the array keys in $filter->settings and $defaults.
+ *        
+ *         @ingroup callbacks
  */
 function callback_filter_settings($form, &$form_state, $filter, $format, $defaults, $filters) {
-  $filter->settings += $defaults;
-
-  $elements = array();
-  $elements['nofollow'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Add rel="nofollow" to all links'),
-    '#default_value' => $filter->settings['nofollow'],
-  );
-  return $elements;
+	$filter->settings += $defaults;
+	
+	$elements = array ();
+	$elements ['nofollow'] = array (
+			'#type' => 'checkbox',
+			'#title' => t ( 'Add rel="nofollow" to all links' ),
+			'#default_value' => $filter->settings ['nofollow'] 
+	);
+	return $elements;
 }
 
 /**
@@ -181,29 +179,28 @@ function callback_filter_settings($form, &$form_state, $filter, $format, $defaul
  * because that would short-circuit the control the user has over the order in
  * which filters are applied.
  *
- * @param $text
- *   The text string to be filtered.
- * @param $filter
- *   The filter object containing settings for the given format.
- * @param $format
- *   The text format object assigned to the text to be filtered.
- * @param $langcode
- *   The language code of the text to be filtered.
- * @param $cache
- *   A Boolean indicating whether the filtered text is going to be cached in
- *   {cache_filter}.
- * @param $cache_id
- *   The ID of the filtered text in {cache_filter}, if $cache is TRUE.
- *
- * @return
- *   The prepared, escaped text.
- *
- * @ingroup callbacks
+ * @param $text The
+ *        	text string to be filtered.
+ * @param $filter The
+ *        	filter object containing settings for the given format.
+ * @param $format The
+ *        	text format object assigned to the text to be filtered.
+ * @param $langcode The
+ *        	language code of the text to be filtered.
+ * @param $cache A
+ *        	Boolean indicating whether the filtered text is going to be cached in
+ *        	{cache_filter}.
+ * @param $cache_id The
+ *        	ID of the filtered text in {cache_filter}, if $cache is TRUE.
+ *        	
+ * @return The prepared, escaped text.
+ *        
+ *         @ingroup callbacks
  */
 function callback_filter_prepare($text, $filter, $format, $langcode, $cache, $cache_id) {
-  // Escape <code> and </code> tags.
-  $text = preg_replace('|<code>(.+?)</code>|se', "[codefilter_code]$1[/codefilter_code]", $text);
-  return $text;
+	// Escape <code> and </code> tags.
+	$text = preg_replace ( '|<code>(.+?)</code>|se', "[codefilter_code]$1[/codefilter_code]", $text );
+	return $text;
 }
 
 /**
@@ -214,29 +211,28 @@ function callback_filter_prepare($text, $filter, $format, $langcode, $cache, $ca
  * See hook_filter_info() for a description of the filtering process. This step
  * is where the filter actually transforms the text.
  *
- * @param $text
- *   The text string to be filtered.
- * @param $filter
- *   The filter object containing settings for the given format.
- * @param $format
- *   The text format object assigned to the text to be filtered.
- * @param $langcode
- *   The language code of the text to be filtered.
- * @param $cache
- *   A Boolean indicating whether the filtered text is going to be cached in
- *   {cache_filter}.
- * @param $cache_id
- *   The ID of the filtered text in {cache_filter}, if $cache is TRUE.
- *
- * @return
- *   The filtered text.
- *
- * @ingroup callbacks
+ * @param $text The
+ *        	text string to be filtered.
+ * @param $filter The
+ *        	filter object containing settings for the given format.
+ * @param $format The
+ *        	text format object assigned to the text to be filtered.
+ * @param $langcode The
+ *        	language code of the text to be filtered.
+ * @param $cache A
+ *        	Boolean indicating whether the filtered text is going to be cached in
+ *        	{cache_filter}.
+ * @param $cache_id The
+ *        	ID of the filtered text in {cache_filter}, if $cache is TRUE.
+ *        	
+ * @return The filtered text.
+ *        
+ *         @ingroup callbacks
  */
 function callback_filter_process($text, $filter, $format, $langcode, $cache, $cache_id) {
-  $text = preg_replace('|\[codefilter_code\](.+?)\[/codefilter_code\]|se', "<pre>$1</pre>", $text);
-
-  return $text;
+	$text = preg_replace ( '|\[codefilter_code\](.+?)\[/codefilter_code\]|se', "<pre>$1</pre>", $text );
+	
+	return $text;
 }
 
 /**
@@ -247,27 +243,25 @@ function callback_filter_process($text, $filter, $format, $langcode, $cache, $ca
  * A filter's tips should be informative and to the point. Short tips are
  * preferably one-liners.
  *
- * @param $filter
- *   An object representing the filter.
- * @param $format
- *   An object representing the text format the filter is contained in.
- * @param $long
- *   Whether this callback should return a short tip to display in a form
- *   (FALSE), or whether a more elaborate filter tips should be returned for
- *   theme_filter_tips() (TRUE).
- *
- * @return
- *   Translated text to display as a tip.
- *
- * @ingroup callbacks
+ * @param $filter An
+ *        	object representing the filter.
+ * @param $format An
+ *        	object representing the text format the filter is contained in.
+ * @param $long Whether
+ *        	this callback should return a short tip to display in a form
+ *        	(FALSE), or whether a more elaborate filter tips should be returned for
+ *        	theme_filter_tips() (TRUE).
+ *        	
+ * @return Translated text to display as a tip.
+ *        
+ *         @ingroup callbacks
  */
 function callback_filter_tips($filter, $format, $long) {
- if ($long) {
-    return t('Lines and paragraphs are automatically recognized. The &lt;br /&gt; line break, &lt;p&gt; paragraph and &lt;/p&gt; close paragraph tags are inserted automatically. If paragraphs are not recognized simply add a couple blank lines.');
-  }
-  else {
-    return t('Lines and paragraphs break automatically.');
-  }
+	if ($long) {
+		return t ( 'Lines and paragraphs are automatically recognized. The &lt;br /&gt; line break, &lt;p&gt; paragraph and &lt;/p&gt; close paragraph tags are inserted automatically. If paragraphs are not recognized simply add a couple blank lines.' );
+	} else {
+		return t ( 'Lines and paragraphs break automatically.' );
+	}
 }
 
 /**
@@ -278,14 +272,14 @@ function callback_filter_tips($filter, $format, $long) {
 /**
  * Perform actions when a new text format has been created.
  *
- * @param $format
- *   The format object of the format being updated.
- *
+ * @param $format The
+ *        	format object of the format being updated.
+ *        	
  * @see hook_filter_format_update()
  * @see hook_filter_format_disable()
  */
 function hook_filter_format_insert($format) {
-  mymodule_cache_rebuild();
+	mymodule_cache_rebuild ();
 }
 
 /**
@@ -295,27 +289,27 @@ function hook_filter_format_insert($format) {
  * way. For example, when filters have been reconfigured, disabled, or
  * re-arranged in the text format.
  *
- * @param $format
- *   The format object of the format being updated.
- *
+ * @param $format The
+ *        	format object of the format being updated.
+ *        	
  * @see hook_filter_format_insert()
  * @see hook_filter_format_disable()
  */
 function hook_filter_format_update($format) {
-  mymodule_cache_rebuild();
+	mymodule_cache_rebuild ();
 }
 
 /**
  * Perform actions when a text format has been disabled.
  *
- * @param $format
- *   The format object of the format being disabled.
- *
+ * @param $format The
+ *        	format object of the format being disabled.
+ *        	
  * @see hook_filter_format_insert()
  * @see hook_filter_format_update()
  */
 function hook_filter_format_disable($format) {
-  mymodule_cache_rebuild();
+	mymodule_cache_rebuild ();
 }
 
 /**

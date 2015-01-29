@@ -1,22 +1,133 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-3" id="left-panel">
-		  	<div class="row">
-				<?php if ($logo): ?>
-					<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-						<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-					</a>
-				<?php endif; ?>
-			</div>
-			<div class="row">Portfolio manager</div>
-			<div class="row input-group">
-				<span class="input-group-addon"><i class="fa fa-search"></i></span><input class="form-control" type="text" placeholder="Search">
-			</div>
-			<div class="row">
-				<?php print render($main_menu); ?>
-			</div>
-		</div>
-	  <div class="col-md-9"><?php print $messages; ?><?php print render($page['content']); ?></div>
-	</div>
-</div>
+<section id="container" >
+    <!-- **********************************************************************************************************************************************************
+    TOP BAR CONTENT & NOTIFICATIONS
+    *********************************************************************************************************************************************************** -->
 
+
+    <!-- **********************************************************************************************************************************************************
+    MAIN SIDEBAR MENU
+    *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+
+                <div class="centered"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><img src="<?php print $logo; ?>" class="dashlogo center-block img-responsive"></a></div>
+                <h5 class="centered portfolio_m">Portfolio Manager</h5>
+				<div class="input-group search">
+					<span class="input-group-addon search-field-container"><i class="fa fa-search"></i></span><input id="search-field" class="form-control" type="text" placeholder="Search">
+				</div>
+                <h3 class="menu_ttl">Main</h3>
+            <ul class="sidebar-menu" id="nav-accordion">
+
+                <li class="mt">
+                    <a id="red" href="portfolio.html">
+                        <i class="fa fa-pie-chart"></i>
+                        <span class="sidebar_ttl">Portfolio Analysis</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a id="green" class="active" href="performance.html" >
+                        <i class="fa fa-bar-chart"></i>
+                        <span class="sidebar_ttl">Performance</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a id="blu" href="sales.html" >
+                        <i class="fa fa-dollar"></i>
+                        <span class="sidebar_ttl">Sale Management</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a id="yellow" href="postsale.html" >
+                        <i class="fa fa-connectdevelop"></i>
+                        <span class="sidebar_ttl">Post Sale</span>
+                    </a>
+                </li>
+
+                <h3 class="menu_ttl">System</h3>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" >
+                        <i class="fa fa-bell"></i>
+                        <span>Notifications</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" >
+                        <i class="fa fa-newspaper-o"></i>
+                        <span>News</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" >
+                        <i class="fa fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="<?php print url('user/logout') ?>" >
+                        <i class="fa fa-sign-out"></i>
+                        <span>Log Out</span>
+                    </a>
+                </li>
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+
+    <!-- **********************************************************************************************************************************************************
+    MAIN CONTENT
+    *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+          <section class="sub-wrapper">
+
+            <!--header start-->
+            <header class="header green-bg">
+
+                <section class="leftarea">
+                    <i class="fa fa-bar-chart header_icon"></i>
+                    <h3 class="header_ttl">Remarketing Performance</h3>
+                </section>
+
+                <section class="ritearea">
+                    <h3 class="header_subttl">Actuos Portfolio Insights</h3>
+                </section>
+
+            </header>
+            <!--header end-->
+
+            <nav class="navbar navbar-default navbar-left dashnav">
+                    <ul id="greenmenu" class="nav navbar-nav">
+                        <li><a href="#">Worklist</a></li>
+                        <li><a href="#">Overview</a></li>
+                    </ul>
+            </nav>
+
+			<div class="content-dashboard"><?php print $messages; ?><?php print render($page['content']); ?>
+			
+		
+			</div>         
+
+          </section>
+        </section>
+    </section>
+</section>
+<script>
+jQuery( document ).ready(function() {
+	jQuery("#sidebar").css({"margin-top": "-" + jQuery("body").css("padding-top"), "padding-top": jQuery("body").css("padding-top")});
+	jQuery("#sidebar").niceScroll({styler:"fb",cursorcolor:"#4ECDC4", cursorwidth: '3', cursorborderradius: '10px', background: '#404040', spacebarenabled:false, cursorborder: ''});
+});
+
+
+</script>

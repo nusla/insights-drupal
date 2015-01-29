@@ -1,0 +1,4 @@
+name = Actuos Portal
+description = "Add menu items and ther staff for Actuos portal pages"
+core = 7.x
+package = Actuos Custom Modules

@@ -38,32 +38,31 @@
  */
 ?>
 <table id="forum-topic-<?php print $topic_id; ?>">
-  <thead>
-    <tr><?php print $header; ?></tr>
-  </thead>
-  <tbody>
+	<thead>
+		<tr><?php print $header; ?></tr>
+	</thead>
+	<tbody>
   <?php foreach ($topics as $topic): ?>
     <tr class="<?php print $topic->zebra;?>">
-      <td class="icon"><?php print $topic->icon; ?></td>
-      <td class="title">
-        <div>
+			<td class="icon"><?php print $topic->icon; ?></td>
+			<td class="title">
+				<div>
           <?php print $topic->title; ?>
         </div>
-        <div>
+				<div>
           <?php print $topic->created; ?>
         </div>
-      </td>
+			</td>
     <?php if ($topic->moved): ?>
       <td colspan="3"><?php print $topic->message; ?></td>
     <?php else: ?>
       <td class="replies">
         <?php print $topic->comment_count; ?>
         <?php if ($topic->new_replies): ?>
-          <br />
-          <a href="<?php print $topic->new_url; ?>"><?php print $topic->new_text; ?></a>
+          <br /> <a href="<?php print $topic->new_url; ?>"><?php print $topic->new_text; ?></a>
         <?php endif; ?>
       </td>
-      <td class="last-reply"><?php print $topic->last_reply; ?></td>
+			<td class="last-reply"><?php print $topic->last_reply; ?></td>
     <?php endif; ?>
     </tr>
   <?php endforeach; ?>

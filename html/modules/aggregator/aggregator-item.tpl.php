@@ -21,16 +21,16 @@
  */
 ?>
 <div class="feed-item">
-  <h3 class="feed-item-title">
-    <a href="<?php print $feed_url; ?>"><?php print $feed_title; ?></a>
-  </h3>
+	<h3 class="feed-item-title">
+		<a href="<?php print $feed_url; ?>"><?php print $feed_title; ?></a>
+	</h3>
 
-  <div class="feed-item-meta">
+	<div class="feed-item-meta">
   <?php if ($source_url): ?>
     <a href="<?php print $source_url; ?>" class="feed-item-source"><?php print $source_title; ?></a> -
   <?php endif; ?>
     <span class="feed-item-date"><?php print $source_date; ?></span>
-  </div>
+	</div>
 
 <?php if ($content): ?>
   <div class="feed-item-body">

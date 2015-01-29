@@ -25,9 +25,9 @@
  */
 ?>
 <?php if ($title): ?>
-  <h3><?php print $title; ?></h3>
+<h3><?php print $title; ?></h3>
 <?php endif; ?>
 
-<dl<?php print $attributes; ?>>
+<dl <?php print $attributes; ?>>
   <?php print $profile_items; ?>
 </dl>

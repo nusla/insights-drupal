@@ -1,14 +1,15 @@
-
 /**
  * Image upload widget.
  */
 div.image-preview {
-  float: left; /* LTR */
-  padding: 0 10px 10px 0; /* LTR */
+	float: left; /* LTR */
+	padding: 0 10px 10px 0; /* LTR */
 }
+
 div.image-widget-data {
-  float: left; /* LTR */
+	float: left; /* LTR */
 }
+
 div.image-widget-data input.text-field {
-  width: auto;
+	width: auto;
 }

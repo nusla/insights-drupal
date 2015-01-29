@@ -11189,23 +11189,23 @@ img.bg {
 .loginform_holder {
   margin-top: -8%;
   padding: 2%;
-  height: 325px;
+  min-height: 325px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 5px;
 }
 .inputicon_email {
   position: absolute;
   font-size: 1.8rem;
-  top: 20%;
-  left: 7%;
+  top: 42px;
+  left: 16px;
   color: #333;
   opacity: 0.9;
 }
 .inputicon_pswd {
   position: absolute;
   font-size: 2.6rem;
-  top: 46%;
-  left: 7%;
+  top: 36px;
+  left: 16px;
   color: #333;
   opacity: 0.9;
 }
@@ -11334,22 +11334,10 @@ button.log_in:focus {
   .rms_itself {
     margin-top: 53%;
   }
-  .inputicon_email {
-    top: 19%;
-  }
-  .inputicon_pswd {
-    top: 45.5%;
-  }
 }
 @media (min-width: 1900px) {
   .rms_itself {
     margin-top: 58%;
-  }
-  .inputicon_email {
-    top: 18.8%;
-  }
-  .inputicon_pswd {
-    top: 44.4%;
   }
 }
 @media (min-width: 2500px) {
@@ -11357,21 +11345,9 @@ button.log_in:focus {
     margin-top: 77%;
     width: 10%;
   }
-  .inputicon_email {
-    top: 20%;
-  }
-  .inputicon_pswd {
-    top: 48%;
-  }
 }
 /* ~~~~~~~~~~~~~~~~~~ SM ~~~~~~~~~~~~~~~ */
 @media (max-width: 1199px) {
-  .inputicon_email {
-    top: 18.8%;
-  }
-  .inputicon_pswd {
-    top: 45%;
-  }
   span.forgot_pswd a {
     margin-top: -1.6%;
   }
@@ -11389,12 +11365,6 @@ button.log_in:focus {
   .loginform_holder {
     left: 8%;
   }
-  .inputicon_email {
-    top: 17.4%;
-  }
-  .inputicon_pswd {
-    top: 44.3%;
-  }
   .rms_itself {
     margin-top: 58%;
     width: 10%;
@@ -11406,14 +11376,6 @@ button.log_in:focus {
     margin-left: 3%;
     margin-right: 3%;
     left: 0;
-  }
-  .inputicon_email {
-    left: 4%;
-    top: 17%;
-  }
-  .inputicon_pswd {
-    left: 4%;
-    top: 44%;
   }
   label.keep_me_signed span {
     margin-top: -0.6%;
@@ -11432,36 +11394,18 @@ button.log_in:focus {
   }
 }
 @media (max-width: 660px) {
-  .inputicon_email {
-    top: 16.6%;
-  }
-  .inputicon_pswd {
-    top: 43%;
-  }
   .rms_itself {
     margin-top: 7%;
     width: 15%;
   }
 }
 @media (max-width: 525px) {
-  .inputicon_email {
-    top: 16%;
-  }
-  .inputicon_pswd {
-    top: 42.5%;
-  }
   .rms_itself {
     margin-top: 9%;
     width: 17%;
   }
 }
 @media (max-width: 485px) {
-  .inputicon_email {
-    top: 15.5%;
-  }
-  .inputicon_pswd {
-    top: 42%;
-  }
   label.keep_me_signed span {
     margin-top: -1%;
   }
@@ -11479,14 +11423,6 @@ button.log_in:focus {
 @media (max-width: 414px) {
   .loginform_holder {
     padding-top: 5%;
-  }
-  .inputicon_email {
-    left: 5%;
-    top: 19%;
-  }
-  .inputicon_pswd {
-    left: 5%;
-    top: 45.6%;
   }
   .rms_itself {
     margin-top: 18%;
@@ -11510,12 +11446,6 @@ button.log_in:focus {
 @media (max-width: 360px) {
   .loginform_holder {
     margin-top: 15%;
-  }
-  .inputicon_email {
-    top: 18%;
-  }
-  .inputicon_pswd {
-    top: 44.6%;
   }
   .rms_itself {
     margin-top: 8%;
@@ -11569,4 +11499,32 @@ button.log_in:focus {
 }
 .form-item-remember-me {
   padding: 1em 0 0 0;
+}
+.content-dashboard {
+  width: 100%;
+  padding: 0 1em;
+}
+.sub-wrapper {
+  width: 100%;
+  position: relative;
+  top: -60px;
+  padding-left: 65px;
+}
+.search {
+  background-color: #2F373A;
+  border: none;
+}
+.search .search-field-container {
+  background-color: #2F373A;
+  border: none;
+}
+.search input#search-field {
+  background-color: #2F373A;
+  border: none;
+  height: 40px;
+  box-shadow: none;
+}
+.login-form-wrapper .form-item-pass,
+.login-form-wrapper .form-item-name {
+  position: relative;
 }

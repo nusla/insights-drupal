@@ -17,7 +17,7 @@
  */
 ?>
 <?php if ($user_picture): ?>
-  <div class="user-picture">
+<div class="user-picture">
     <?php print $user_picture; ?>
   </div>
 <?php endif; ?>

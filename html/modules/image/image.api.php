@@ -16,53 +16,52 @@
  * This hook enables modules to define image manipulation effects for use with
  * an image style.
  *
- * @return
- *   An array of image effects. This array is keyed on the machine-readable
- *   effect name. Each effect is defined as an associative array containing the
- *   following items:
- *   - "label": The human-readable name of the effect.
- *   - "effect callback": The function to call to perform this image effect.
- *   - "dimensions passthrough": (optional) Set this item if the effect doesn't
- *     change the dimensions of the image.
- *   - "dimensions callback": (optional) The function to call to transform
- *     dimensions for this effect.
- *   - "help": (optional) A brief description of the effect that will be shown
- *     when adding or configuring this image effect.
- *   - "form callback": (optional) The name of a function that will return a
- *     $form array providing a configuration form for this image effect.
- *   - "summary theme": (optional) The name of a theme function that will output
- *     a summary of this image effect's configuration.
- *
+ * @return An array of image effects. This array is keyed on the machine-readable
+ *         effect name. Each effect is defined as an associative array containing the
+ *         following items:
+ *         - "label": The human-readable name of the effect.
+ *         - "effect callback": The function to call to perform this image effect.
+ *         - "dimensions passthrough": (optional) Set this item if the effect doesn't
+ *         change the dimensions of the image.
+ *         - "dimensions callback": (optional) The function to call to transform
+ *         dimensions for this effect.
+ *         - "help": (optional) A brief description of the effect that will be shown
+ *         when adding or configuring this image effect.
+ *         - "form callback": (optional) The name of a function that will return a
+ *         $form array providing a configuration form for this image effect.
+ *         - "summary theme": (optional) The name of a theme function that will output
+ *         a summary of this image effect's configuration.
+ *        
  * @see hook_image_effect_info_alter()
  */
 function hook_image_effect_info() {
-  $effects = array();
-
-  $effects['mymodule_resize'] = array(
-    'label' => t('Resize'),
-    'help' => t('Resize an image to an exact set of dimensions, ignoring aspect ratio.'),
-    'effect callback' => 'mymodule_resize_effect',
-    'dimensions callback' => 'mymodule_resize_dimensions',
-    'form callback' => 'mymodule_resize_form',
-    'summary theme' => 'mymodule_resize_summary',
-  );
-
-  return $effects;
+	$effects = array ();
+	
+	$effects ['mymodule_resize'] = array (
+			'label' => t ( 'Resize' ),
+			'help' => t ( 'Resize an image to an exact set of dimensions, ignoring aspect ratio.' ),
+			'effect callback' => 'mymodule_resize_effect',
+			'dimensions callback' => 'mymodule_resize_dimensions',
+			'form callback' => 'mymodule_resize_form',
+			'summary theme' => 'mymodule_resize_summary' 
+	);
+	
+	return $effects;
 }
 
 /**
  * Alter the information provided in hook_image_effect_info().
  *
- * @param $effects
- *   The array of image effects, keyed on the machine-readable effect name.
- *
+ * @param $effects The
+ *        	array of image effects, keyed on the machine-readable effect name.
+ *        	
  * @see hook_image_effect_info()
  */
 function hook_image_effect_info_alter(&$effects) {
-  // Override the Image module's crop effect with more options.
-  $effects['image_crop']['effect callback'] = 'mymodule_crop_effect';
-  $effects['image_crop']['dimensions callback'] = 'mymodule_crop_dimensions';
-  $effects['image_crop']['form callback'] = 'mymodule_crop_form';
+	// Override the Image module's crop effect with more options.
+	$effects ['image_crop'] ['effect callback'] = 'mymodule_crop_effect';
+	$effects ['image_crop'] ['dimensions callback'] = 'mymodule_crop_dimensions';
+	$effects ['image_crop'] ['form callback'] = 'mymodule_crop_form';
 }
 
 /**
@@ -72,15 +71,15 @@ function hook_image_effect_info_alter(&$effects) {
  * changes to an image. For example, updating a module specific variable to
  * reflect a change in the image style's name.
  *
- * @param $style
- *   The image style array that is being updated.
+ * @param $style The
+ *        	image style array that is being updated.
  */
 function hook_image_style_save($style) {
-  // If a module defines an image style and that style is renamed by the user
-  // the module should update any references to that style.
-  if (isset($style['old_name']) && $style['old_name'] == variable_get('mymodule_image_style', '')) {
-    variable_set('mymodule_image_style', $style['name']);
-  }
+	// If a module defines an image style and that style is renamed by the user
+	// the module should update any references to that style.
+	if (isset ( $style ['old_name'] ) && $style ['old_name'] == variable_get ( 'mymodule_image_style', '' )) {
+		variable_set ( 'mymodule_image_style', $style ['name'] );
+	}
 }
 
 /**
@@ -91,15 +90,15 @@ function hook_image_style_save($style) {
  * $style['name'] and the style being deleted will be specified in
  * $style['old_name'].
  *
- * @param $style
- *   The image style array that being deleted.
+ * @param $style The
+ *        	image style array that being deleted.
  */
 function hook_image_style_delete($style) {
-  // Administrators can choose an optional replacement style when deleting.
-  // Update the modules style variable accordingly.
-  if (isset($style['old_name']) && $style['old_name'] == variable_get('mymodule_image_style', '')) {
-    variable_set('mymodule_image_style', $style['name']);
-  }
+	// Administrators can choose an optional replacement style when deleting.
+	// Update the modules style variable accordingly.
+	if (isset ( $style ['old_name'] ) && $style ['old_name'] == variable_get ( 'mymodule_image_style', '' )) {
+		variable_set ( 'mymodule_image_style', $style ['name'] );
+	}
 }
 
 /**
@@ -111,12 +110,12 @@ function hook_image_style_delete($style) {
  * be cleared using this hook. This hook is called whenever a style is updated,
  * deleted, or any effect associated with the style is update or deleted.
  *
- * @param $style
- *   The image style array that is being flushed.
+ * @param $style The
+ *        	image style array that is being flushed.
  */
 function hook_image_style_flush($style) {
-  // Empty cached data that contains information about the style.
-  cache_clear_all('*', 'cache_mymodule', TRUE);
+	// Empty cached data that contains information about the style.
+	cache_clear_all ( '*', 'cache_mymodule', TRUE );
 }
 
 /**
@@ -140,16 +139,16 @@ function hook_image_style_flush($style) {
  * @see hook_image_default_styles()
  */
 function hook_image_styles_alter(&$styles) {
-  // Check that we only affect a default style.
-  if ($styles['thumbnail']['storage'] == IMAGE_STORAGE_DEFAULT) {
-    // Add an additional effect to the thumbnail style.
-    $styles['thumbnail']['effects'][] = array(
-      'name' => 'image_desaturate',
-      'data' => array(),
-      'weight' => 1,
-      'effect callback' => 'image_desaturate_effect',
-    );
-  }
+	// Check that we only affect a default style.
+	if ($styles ['thumbnail'] ['storage'] == IMAGE_STORAGE_DEFAULT) {
+		// Add an additional effect to the thumbnail style.
+		$styles ['thumbnail'] ['effects'] [] = array (
+				'name' => 'image_desaturate',
+				'data' => array (),
+				'weight' => 1,
+				'effect callback' => 'image_desaturate_effect' 
+		);
+	}
 }
 
 /**
@@ -169,30 +168,33 @@ function hook_image_styles_alter(&$styles) {
  * Image module will still perform the same queries to check the database for
  * any custom styles.
  *
- * @return
- *   An array of image styles, keyed by the style name.
+ * @return An array of image styles, keyed by the style name.
  * @see image_image_default_styles()
  */
 function hook_image_default_styles() {
-  $styles = array();
-
-  $styles['mymodule_preview'] = array(
-    'label' => 'My module preview',
-    'effects' => array(
-      array(
-        'name' => 'image_scale',
-        'data' => array('width' => 400, 'height' => 400, 'upscale' => 1),
-        'weight' => 0,
-      ),
-      array(
-        'name' => 'image_desaturate',
-        'data' => array(),
-        'weight' => 1,
-      ),
-    ),
-  );
-
-  return $styles;
+	$styles = array ();
+	
+	$styles ['mymodule_preview'] = array (
+			'label' => 'My module preview',
+			'effects' => array (
+					array (
+							'name' => 'image_scale',
+							'data' => array (
+									'width' => 400,
+									'height' => 400,
+									'upscale' => 1 
+							),
+							'weight' => 0 
+					),
+					array (
+							'name' => 'image_desaturate',
+							'data' => array (),
+							'weight' => 1 
+					) 
+			) 
+	);
+	
+	return $styles;
 }
 
  /**

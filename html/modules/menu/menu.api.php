@@ -17,20 +17,20 @@
  * Contributed modules may use the information to perform actions based on the
  * information entered into the menu system.
  *
- * @param $menu
- *   An array representing a custom menu:
- *   - menu_name: The unique name of the custom menu.
- *   - title: The human readable menu title.
- *   - description: The custom menu description.
- *
+ * @param $menu An
+ *        	array representing a custom menu:
+ *        	- menu_name: The unique name of the custom menu.
+ *        	- title: The human readable menu title.
+ *        	- description: The custom menu description.
+ *        	
  * @see hook_menu_update()
  * @see hook_menu_delete()
  */
 function hook_menu_insert($menu) {
-  // For example, we track available menus in a variable.
-  $my_menus = variable_get('my_module_menus', array());
-  $my_menus[$menu['menu_name']] = $menu['menu_name'];
-  variable_set('my_module_menus', $my_menus);
+	// For example, we track available menus in a variable.
+	$my_menus = variable_get ( 'my_module_menus', array () );
+	$my_menus [$menu ['menu_name']] = $menu ['menu_name'];
+	variable_set ( 'my_module_menus', $my_menus );
 }
 
 /**
@@ -40,22 +40,22 @@ function hook_menu_insert($menu) {
  * Contributed modules may use the information to perform actions based on the
  * information entered into the menu system.
  *
- * @param $menu
- *   An array representing a custom menu:
- *   - menu_name: The unique name of the custom menu.
- *   - title: The human readable menu title.
- *   - description: The custom menu description.
- *   - old_name: The current 'menu_name'. Note that internal menu names cannot
- *     be changed after initial creation.
- *
+ * @param $menu An
+ *        	array representing a custom menu:
+ *        	- menu_name: The unique name of the custom menu.
+ *        	- title: The human readable menu title.
+ *        	- description: The custom menu description.
+ *        	- old_name: The current 'menu_name'. Note that internal menu names cannot
+ *        	be changed after initial creation.
+ *        	
  * @see hook_menu_insert()
  * @see hook_menu_delete()
  */
 function hook_menu_update($menu) {
-  // For example, we track available menus in a variable.
-  $my_menus = variable_get('my_module_menus', array());
-  $my_menus[$menu['menu_name']] = $menu['menu_name'];
-  variable_set('my_module_menus', $my_menus);
+	// For example, we track available menus in a variable.
+	$my_menus = variable_get ( 'my_module_menus', array () );
+	$my_menus [$menu ['menu_name']] = $menu ['menu_name'];
+	variable_set ( 'my_module_menus', $my_menus );
 }
 
 /**
@@ -66,20 +66,20 @@ function hook_menu_update($menu) {
  * information to perform actions based on the information entered into the menu
  * system.
  *
- * @param $menu
- *   An array representing a custom menu:
- *   - menu_name: The unique name of the custom menu.
- *   - title: The human readable menu title.
- *   - description: The custom menu description.
- *
+ * @param $menu An
+ *        	array representing a custom menu:
+ *        	- menu_name: The unique name of the custom menu.
+ *        	- title: The human readable menu title.
+ *        	- description: The custom menu description.
+ *        	
  * @see hook_menu_insert()
  * @see hook_menu_update()
  */
 function hook_menu_delete($menu) {
-  // Delete the record from our variable.
-  $my_menus = variable_get('my_module_menus', array());
-  unset($my_menus[$menu['menu_name']]);
-  variable_set('my_module_menus', $my_menus);
+	// Delete the record from our variable.
+	$my_menus = variable_get ( 'my_module_menus', array () );
+	unset ( $my_menus [$menu ['menu_name']] );
+	variable_set ( 'my_module_menus', $my_menus );
 }
 
 /**

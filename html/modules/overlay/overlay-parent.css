@@ -1,43 +1,38 @@
-
 /**
  * @file
  * Basic styling for the Overlay module.
  */
-
-html.overlay-open,
-html.overlay-open body {
-  height: 100%;
-  overflow: hidden;
+html.overlay-open, html.overlay-open body {
+	height: 100%;
+	overflow: hidden;
 }
 
-#overlay-container,
-.overlay-modal-background,
-.overlay-element {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 500;
+#overlay-container, .overlay-modal-background, .overlay-element {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 500;
 }
 
 .overlay-modal-background {
-  /* Using a transparent png renders faster than using opacity */
-  background: transparent url(images/background.png) repeat;
+	/* Using a transparent png renders faster than using opacity */
+	background: transparent url(images/background.png) repeat;
 }
 
 .overlay-element {
-  background: transparent;
-  left: -200%;
-  z-index: 501;
-}
-.overlay-element.overlay-active {
-  left: 0;
+	background: transparent;
+	left: -200%;
+	z-index: 501;
 }
 
-html.overlay-open .displace-top,
-html.overlay-open .displace-bottom {
-  z-index: 600;
+.overlay-element.overlay-active {
+	left: 0;
+}
+
+html.overlay-open .displace-top, html.overlay-open .displace-bottom {
+	z-index: 600;
 }
 
 /**
@@ -48,8 +43,9 @@ html.overlay-open .displace-bottom {
  * intended for sighted users.
  */
 #overlay-disable-message {
-  display: none;
+	display: none;
 }
+
 html.overlay-open #overlay-disable-message {
-  display: block;
+	display: block;
 }
