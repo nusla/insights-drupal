@@ -11,47 +11,6 @@
     border-radius: 0;
 }
 
-ul#redmenu, ul#greenmenu, ul#blumenu, ul#yellowmenu {
-    position: relative;
-    margin-top: 2%;
-}
-
-ul#redmenu li, ul#greenmenu li, ul#blumenu li, ul#yellowmenu li {
-    padding-right: 30px;
-}
-
-ul#redmenu li a, ul#greenmenu li a, ul#blumenu li a, ul#yellowmenu li a {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #999;
-    text-transform: uppercase;
-
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-ul#redmenu li a:hover, ul#redmenu li a:focus {
-    color: #333;
-    border-bottom: 3px solid #e74c3c;
-}
-
-ul#greenmenu li a:hover, ul#greenmenu li a:focus {
-    color: #333;
-    border-bottom: 3px solid #1abc9c;
-}
-
-ul#blumenu li a:hover, ul#blumenu li a:focus {
-    color: #333;
-    border-bottom: 3px solid #3498db;
-}
-
-ul#yellowmenu li a:hover, ul#yellowmenu li a:focus {
-    color: #333;
-    border-bottom: 3px solid #f1c40f;
-}
 
 
 .red-bg {
@@ -66,7 +25,7 @@ ul#yellowmenu li a:hover, ul#yellowmenu li a:focus {
     background: #1abc9c;
 }
 
-.blu-bg {
+.blue-bg {
     top: -60px;
     left: 65px;
     background: #3498db;
@@ -130,26 +89,15 @@ h3.menu_ttl {
 }
 
 
-a#red .fa-pie-chart {font-size: 2.4rem;}
-a#red:hover, a#red:focus, a#red.active .fa-pie-chart {color: #e74c3c;}
+.main-menu i.fa {font-size: 2.4rem;}
+.main-menu li.red-icon a:hover i.fa, .main-menu li.red-icon a:focus i.fa, .main-menu li.red-icon a.active i.fa {color: #e74c3c;}
+.main-menu li.green-icon a:hover i.fa, .main-menu li.green-icon a:focus i.fa, .main-menu li.green-icon a.active i.fa {color: #1abc9c;}
+.main-menu li.blue-icon a:hover i.fa, .main-menu li.blue-icon a:focus i.fa, .main-menu li.blue-icon a.active i.fa {color: #3498db;}
+.main-menu li.yellow-icon a:hover i.fa, .main-menu li.yellow-icon a:focus i.fa, .main-menu li.yellow-icon a.active i.fa {color: #f1c40f;}
 
-a#green .fa-bar-chart {font-size: 2.4rem;}
-a#green:hover, a#green:focus, a#green.active .fa-bar-chart {color: #1abc9c;}
-
-a#blu .fa-dollar {font-size: 2.4rem;}
-a#blu:hover, a#blu:focus, a#blu.active .fa-dollar {color: #3498db;}
-
-a#yellow .fa-connectdevelop {font-size: 2.4rem;}
-a#yellow:hover, a#yellow:focus, a#yellow.active .fa-connectdevelop {color: #f1c40f;}
-
-
-
-
-
-
-
-
-
+.main-menu i.fa{
+	font-size: 2.4rem;
+}
 
 
 /* >>>>>>>>>> MQ <<<<<<<<< */

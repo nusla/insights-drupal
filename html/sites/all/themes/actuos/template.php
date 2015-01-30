@@ -37,6 +37,45 @@ function actuos_preprocess_page(&$variables) {
 	
 	$variables['system_menu'] = menu_tree('menu-system-menu');
 	// $variables['main_menu']['#theme_wrappers'] = array('menu_tree__primary');
+	
+	switch (current_path()){
+		case 'portfolio-analysis':
+			$color = 'red';
+			$header_icon = array('fa-pie-chart');
+			break;
+		case 'performance':
+			$color = 'green';
+			$header_icon = array('fa-bar-chart');
+			break;
+		case 'sale-management':
+			$color = 'blue';
+			$header_icon = array('fa-dollar');
+			break;
+		case 'post-sale':
+			$color = 'yellow';
+			$header_icon = array('fa-connectdevelop');
+			break;
+		case 'notifications':
+			$color = 'green';
+			$header_icon = array('fa-bell');
+			break;
+		case 'news':
+			$color = 'green';
+			$header_icon = array('fa-newspaper-o');
+			break;
+		case 'settings':
+			$color = 'green';
+			$header_icon = array('fa-cog');
+			break;
+		default:
+			$color = 'green';
+			$header_icon = array('fa-cog');
+			break;
+	}
+	
+	$variables['page_color'] = $color;
+	$variables['header_icon'] = implode(' ', $header_icon);
+	
 }
 function actuos_form_alter(&$form, &$form_state, $form_id) {
 	switch ($form_id) {
@@ -80,10 +119,10 @@ function actuos_form_alter(&$form, &$form_state, $form_id) {
 }
 
 function actuos_menu_tree__menu_system_menu($variables) {
-	return '<ul class="sidebar-menu">' . $variables['tree'] . '</ul>';
+	return '<ul class="sidebar-menu system-menu">' . $variables['tree'] . '</ul>';
 }
 function actuos_menu_tree__main_menu($variables) {
-	return '<ul class="sidebar-menu">' . $variables['tree'] . '</ul>';
+	return '<ul class="sidebar-menu main-menu">' . $variables['tree'] . '</ul>';
 }
 function actuos_menu_link(array $variables) {
 	if ('menu_link__main_menu' == $variables ['theme_hook_original']) {
@@ -94,17 +133,17 @@ function actuos_menu_link(array $variables) {
 			$variables['element']['#localized_options']['html'] = true;
 		}
 		if ('Performance' == $variables ['element'] ['#title']) {
-			$variables['element']['#title'] = '<i class="fa fa-pie-chart"> </i><span>' . $variables['element']['#title'] . '</span>';
+			$variables['element']['#title'] = '<i class="fa fa-bar-chart"> </i><span>' . $variables['element']['#title'] . '</span>';
 			$variables['element']['#attributes']['class'][] = 'green-icon';
 			$variables['element']['#localized_options']['html'] = true;
 		}
 		if ('Sale Management' == $variables ['element'] ['#title']) {
-			$variables['element']['#title'] = '<i class="fa fa-pie-chart"> </i><span>' . $variables['element']['#title'] . '</span>';
+			$variables['element']['#title'] = '<i class="fa fa-dollar"> </i><span>' . $variables['element']['#title'] . '</span>';
 			$variables['element']['#attributes']['class'][] = 'blue-icon';
 			$variables['element']['#localized_options']['html'] = true;
 		}
 		if ('Post Sale' == $variables ['element'] ['#title']) {
-			$variables['element']['#title'] = '<i class="fa fa-pie-chart"> </i><span>' . $variables['element']['#title'] . '</span>';
+			$variables['element']['#title'] = '<i class="fa fa-connectdevelop"> </i><span>' . $variables['element']['#title'] . '</span>';
 			$variables['element']['#attributes']['class'][] = 'yellow-icon';
 			$variables['element']['#localized_options']['html'] = true;
 		}

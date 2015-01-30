@@ -38,10 +38,10 @@
           <section class="sub-wrapper">
 
             <!--header start-->
-            <header class="header green-bg">
+            <header class="header <?php print $page_color; ?>-bg">
 
                 <section class="leftarea">
-                    <i class="fa fa-bar-chart header_icon"></i>
+                    <i class="fa header_icon <?php print $header_icon; ?>"></i>
                     <h3 class="header_ttl"><?php print $title; ?></h3>
                 </section>
 
@@ -53,10 +53,13 @@
             <!--header end-->
 
             <nav class="navbar navbar-default navbar-left dashnav">
-                    <ul id="greenmenu" class="nav navbar-nav">
+                   
+                    <ul class="nav navbar-nav">
+                   <!-- 
                         <li><a href="#">Worklist</a></li>
                         <li><a href="#">Overview</a></li>
                     </ul>
+                    -->
             </nav>
 
 			<div class="content-dashboard"><?php print $messages; ?><?php print render($page['content']); ?>
