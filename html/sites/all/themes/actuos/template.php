@@ -56,20 +56,20 @@ function actuos_preprocess_page(&$variables) {
 			$header_icon = array('fa-connectdevelop');
 			break;
 		case 'notifications':
-			$color = 'green';
+			$color = 'gray';
 			$header_icon = array('fa-bell');
 			break;
 		case 'news':
-			$color = 'green';
+			$color = 'gray';
 			$header_icon = array('fa-newspaper-o');
 			break;
 		case 'settings':
-			$color = 'green';
+			$color = 'gray';
 			$header_icon = array('fa-cog');
 			break;
 		default:
-			$color = 'green';
-			$header_icon = array('fa-cog');
+			$color = 'gray';
+			$header_icon = array('fa-chevron-circle-right');
 			break;
 	}
 	
