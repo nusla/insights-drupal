@@ -18,7 +18,7 @@ function actuos_preprocess_page(&$variables) {
 	drupal_add_css ( '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', 'external' );
 	drupal_add_css ( '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css', 'external' );
 	drupal_add_js ( '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js', 'external' );
-	drupal_add_css ( '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', 'external' );
+	drupal_add_css ( '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', 'external' );
 	
 	
 	drupal_add_js ( '//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js', 'external' );
@@ -33,8 +33,9 @@ function actuos_preprocess_page(&$variables) {
 		drupal_add_js(drupal_get_path('theme', 'actuos') . '/assets/javascripts/jquery.nicescroll.js', 'file');
 	}
 	
-	$variables ['main_menu'] = menu_tree ( variable_get ( 'menu_main_links_source', 'main-menu' ) );
-	$variables ['system_menu'] = menu_tree ( variable_get ( 'system_links_source', 'system-menu' ) );
+	$variables['main_menu'] = menu_tree('main-menu');
+	
+	$variables['system_menu'] = menu_tree('menu-system-menu');
 	// $variables['main_menu']['#theme_wrappers'] = array('menu_tree__primary');
 }
 function actuos_form_alter(&$form, &$form_state, $form_id) {
@@ -77,16 +78,57 @@ function actuos_form_alter(&$form, &$form_state, $form_id) {
 			break;
 	}
 }
+
+function actuos_menu_tree__menu_system_menu($variables) {
+	return '<ul class="sidebar-menu">' . $variables['tree'] . '</ul>';
+}
+function actuos_menu_tree__main_menu($variables) {
+	return '<ul class="sidebar-menu">' . $variables['tree'] . '</ul>';
+}
 function actuos_menu_link(array $variables) {
 	if ('menu_link__main_menu' == $variables ['theme_hook_original']) {
-		
-		if ('Home' == $variables ['element'] ['#title']) {
-			$variables ['element'] ['#attributes'] ['class'] [] = 'home-menu';
-			$variables ['element'] ['#attributes'] ['class'] [] = 'fa';
-			$variables ['element'] ['#attributes'] ['class'] [] = 'fa-check';
-			$variables ['element'] ['#prefix'] = 'eee2';
+		$variables['element']['#attributes']['class'][] = 'sub-menu';
+		if ('Portfolio Analysis' == $variables ['element'] ['#title']) {
+			$variables['element']['#title'] = '<i class="fa fa-pie-chart"> </i><span>' . $variables['element']['#title'] . '</span>';
+			$variables['element']['#attributes']['class'][] = 'red-icon';
+			$variables['element']['#localized_options']['html'] = true;
+		}
+		if ('Performance' == $variables ['element'] ['#title']) {
+			$variables['element']['#title'] = '<i class="fa fa-pie-chart"> </i><span>' . $variables['element']['#title'] . '</span>';
+			$variables['element']['#attributes']['class'][] = 'green-icon';
+			$variables['element']['#localized_options']['html'] = true;
+		}
+		if ('Sale Management' == $variables ['element'] ['#title']) {
+			$variables['element']['#title'] = '<i class="fa fa-pie-chart"> </i><span>' . $variables['element']['#title'] . '</span>';
+			$variables['element']['#attributes']['class'][] = 'blue-icon';
+			$variables['element']['#localized_options']['html'] = true;
+		}
+		if ('Post Sale' == $variables ['element'] ['#title']) {
+			$variables['element']['#title'] = '<i class="fa fa-pie-chart"> </i><span>' . $variables['element']['#title'] . '</span>';
+			$variables['element']['#attributes']['class'][] = 'yellow-icon';
+			$variables['element']['#localized_options']['html'] = true;
 		}
 		
-		return theme_menu_link ( $variables );
 	}
+	if ('menu_link__menu_system_menu' == $variables ['theme_hook_original']) {
+		
+		$variables['element']['#attributes']['class'][] = 'sub-menu';
+		if ('Notifications' == $variables ['element'] ['#title']) {
+			$variables['element']['#title'] = '<i class="fa fa-bell"> </i><span>' . $variables['element']['#title'] . '</span>';
+			$variables['element']['#localized_options']['html'] = true;
+		}
+		if ('News' == $variables ['element'] ['#title']) {
+			$variables['element']['#title'] = '<i class="fa fa-newspaper-o"> </i><span>' . $variables['element']['#title'] . '</span>';
+			$variables['element']['#localized_options']['html'] = true;
+		}
+		if ('Settings' == $variables ['element'] ['#title']) {
+			$variables['element']['#title'] = '<i class="fa fa-cog"> </i><span>' . $variables['element']['#title'] . '</span>';
+			$variables['element']['#localized_options']['html'] = true;
+		}
+		if ('Logout' == $variables ['element'] ['#title']) {
+			$variables['element']['#title'] = '<i class="fa fa-sign-out"> </i><span>' . $variables['element']['#title'] . '</span>';
+			$variables['element']['#localized_options']['html'] = true;
+		}
+	}
+	return theme_menu_link ( $variables );
 }

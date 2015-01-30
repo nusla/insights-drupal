@@ -355,7 +355,7 @@ ul.sidebar-menu li a{
     transition: all 0.3s ease;
 }
 
-ul.sidebar-menu li a#red.active, ul.sidebar-menu li a#red:hover, ul.sidebar-menu li a#red:focus {
+ul.sidebar-menu li.red-icon.active-trail a, ul.sidebar-menu li.red-icon a:hover, ul.sidebar-menu li.red-icon a:focus {
     background: #666;
     border-left: 4px solid #e74c3c;
     color: #fff;
@@ -368,7 +368,7 @@ ul.sidebar-menu li a#red.active, ul.sidebar-menu li a#red:hover, ul.sidebar-menu
     transition: all 0.3s ease;
 }
 
-ul.sidebar-menu li a#green.active, ul.sidebar-menu li a#green:hover, ul.sidebar-menu li a#green:focus {
+ul.sidebar-menu li.green-icon.active-trail a, ul.sidebar-menu li.green-icon a:hover, ul.sidebar-menu li.green-icon a:focus {
     background: #666;
     border-left: 4px solid #1abc9c;
     color: #fff;
@@ -381,7 +381,7 @@ ul.sidebar-menu li a#green.active, ul.sidebar-menu li a#green:hover, ul.sidebar-
     transition: all 0.3s ease;
 }
 
-ul.sidebar-menu li a#blu.active, ul.sidebar-menu li a#blu:hover, ul.sidebar-menu li a#blu:focus {
+ul.sidebar-menu li.blue-icon.active-trail a, ul.sidebar-menu li.blue-icon a:hover, ul.sidebar-menu li.blue-icon a:focus {
     background: #666;
     border-left: 4px solid #3498db;
     color: #fff;
@@ -394,7 +394,7 @@ ul.sidebar-menu li a#blu.active, ul.sidebar-menu li a#blu:hover, ul.sidebar-menu
     transition: all 0.3s ease;
 }
 
-ul.sidebar-menu li a#yellow.active, ul.sidebar-menu li a#yellow:hover, ul.sidebar-menu li a#yellow:focus {
+ul.sidebar-menu li.yellow-icon.active-trail a, ul.sidebar-menu li.yellow-icon a:hover, ul.sidebar-menu li.yellow-icon a:focus {
     background: #666;
     border-left: 4px solid #f1c40f;
     color: #fff;

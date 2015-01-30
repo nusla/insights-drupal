@@ -18,7 +18,8 @@
 					<span class="input-group-addon search-field-container"><i class="fa fa-search"></i></span><input id="search-field" class="form-control" type="text" placeholder="Search">
 				</div>
                 <h3 class="menu_ttl">Main</h3>
-            <ul class="sidebar-menu" id="nav-accordion">
+                <?php print render($main_menu); ?>
+            <ul class="sidebar-menu" id="">
 
                 <li class="mt">
                     <a id="red" href="portfolio.html">
@@ -50,35 +51,11 @@
 
                 <h3 class="menu_ttl">System</h3>
 
-                <li class="sub-menu">
-                    <a href="javascript:;" >
-                        <i class="fa fa-bell"></i>
-                        <span>Notifications</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;" >
-                        <i class="fa fa-newspaper-o"></i>
-                        <span>News</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;" >
-                        <i class="fa fa-cog"></i>
-                        <span>Settings</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="<?php print url('user/logout') ?>" >
-                        <i class="fa fa-sign-out"></i>
-                        <span>Log Out</span>
-                    </a>
-                </li>
 
             </ul>
+            
+            
+            <?php print render($system_menu); ?>
             <!-- sidebar menu end-->
         </div>
     </aside>
@@ -97,7 +74,7 @@
 
                 <section class="leftarea">
                     <i class="fa fa-bar-chart header_icon"></i>
-                    <h3 class="header_ttl">Remarketing Performance</h3>
+                    <h3 class="header_ttl"><?php print $title; ?></h3>
                 </section>
 
                 <section class="ritearea">
