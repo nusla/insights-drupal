@@ -19,40 +19,8 @@
 				</div>
                 <h3 class="menu_ttl">Main</h3>
                 <?php print render($main_menu); ?>
-            <ul class="sidebar-menu" id="">
-
-                <li class="mt">
-                    <a id="red" href="portfolio.html">
-                        <i class="fa fa-pie-chart"></i>
-                        <span class="sidebar_ttl">Portfolio Analysis</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a id="green" class="active" href="performance.html" >
-                        <i class="fa fa-bar-chart"></i>
-                        <span class="sidebar_ttl">Performance</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a id="blu" href="sales.html" >
-                        <i class="fa fa-dollar"></i>
-                        <span class="sidebar_ttl">Sale Management</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a id="yellow" href="postsale.html" >
-                        <i class="fa fa-connectdevelop"></i>
-                        <span class="sidebar_ttl">Post Sale</span>
-                    </a>
-                </li>
-
+           
                 <h3 class="menu_ttl">System</h3>
-
-
-            </ul>
             
             
             <?php print render($system_menu); ?>
