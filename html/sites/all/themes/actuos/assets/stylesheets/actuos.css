@@ -11456,6 +11456,11 @@ button.log_in:focus {
     margin-top: 18%;
   }
 }
+@media (max-height: 400px) {
+  .wrappa {
+    margin-top: 0;
+  }
+}
 .login-form-wrapper .form-required {
   display: none;
 }
