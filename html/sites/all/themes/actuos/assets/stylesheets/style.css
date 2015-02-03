@@ -249,6 +249,13 @@ ul.top-menu > li > .logout {
     position: fixed;
     background: #333;
 }
+#sidebar-mobile {
+    width: 65px;
+    height: 100%;
+    position: fixed;
+    background: #333;
+    z-index: 1000;
+}
 
 #sidebar h5 {
 	color: #f2f2f2;

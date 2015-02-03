@@ -9,7 +9,13 @@
     *********************************************************************************************************************************************************** -->
     <!--sidebar start-->
     <aside>
-        <div id="sidebar"  class="nav-collapse ">
+        <div id="sidebar-mobile" class="nav-collapse visible-xs">
+        	<div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+        	
+        </div>
+        <div id="sidebar"  class="nav-collapse hidden-xs">
             <!-- sidebar menu start-->
 
                 <div class="centered"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><img src="<?php print $logo; ?>" class="dashlogo center-block img-responsive"></a></div>
@@ -46,7 +52,7 @@
                 </section>
 
                 <section class="ritearea">
-                    <h3 class="header_subttl">Actuos Portfolio Insights</h3>
+                    <h3 class="header_subttl hidden-xs">Actuos Portfolio Insights</h3>
                 </section>
 
             </header>
@@ -54,7 +60,7 @@
 
             <nav class="navbar navbar-default navbar-left dashnav">
                    
-                    <ul class="nav navbar-nav">
+                    <ul class="nav">
                    <!-- 
                         <li><a href="#">Worklist</a></li>
                         <li><a href="#">Overview</a></li>

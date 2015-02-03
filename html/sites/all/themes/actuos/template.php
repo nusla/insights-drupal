@@ -22,14 +22,17 @@ function actuos_preprocess_page(&$variables) {
 	
 	drupal_add_js ( '//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js', 'external' );
 	drupal_add_js ( '//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js', 'external' );
-	if ($variables ['is_front'] && ! $variables ['logged_in']) {
+	if (! $variables ['logged_in']) {
 		$variables ['theme_hook_suggestions'] [] = 'page__front__anonymous';
 	} else {
 		drupal_add_css(drupal_get_path('theme', 'actuos') . '/assets/stylesheets/customz.css', 'file');
 		drupal_add_css(drupal_get_path('theme', 'actuos') . '/assets/stylesheets/linicon_style.css', 'file');
 		drupal_add_css(drupal_get_path('theme', 'actuos') . '/assets/stylesheets/style-responsive.css', 'file');
 		drupal_add_css(drupal_get_path('theme', 'actuos') . '/assets/stylesheets/style.css', 'file');
+		
 		drupal_add_js(drupal_get_path('theme', 'actuos') . '/assets/javascripts/jquery.nicescroll.js', 'file');
+		drupal_add_js(drupal_get_path('theme', 'actuos') . '/assets/javascripts/jquery.touchSwipe.min.js', 'file');
+		drupal_add_js(drupal_get_path('theme', 'actuos') . '/assets/javascripts/actuos.js');
 	}
 	
 	$variables['main_menu'] = menu_tree('main-menu');
