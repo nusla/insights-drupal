@@ -29,7 +29,7 @@ function actuos_preprocess_page(&$variables) {
 	
 	$variables['main_menu'] = menu_tree('main-menu');
 	
-	$variables['system_menu'] = menu_tree('menu-system-menu');
+	$variables['user_menu'] = menu_tree('user-menu');
 	// $variables['main_menu']['#theme_wrappers'] = array('menu_tree__primary');
 	
 	switch (current_path()){
@@ -112,8 +112,8 @@ function actuos_form_alter(&$form, &$form_state, $form_id) {
 	}
 }
 
-function actuos_menu_tree__menu_system_menu($variables) {
-	return '<ul class="sidebar-menu system-menu">' . $variables['tree'] . '</ul>';
+function actuos_menu_tree__user_menu($variables) {
+	return '<ul class="sidebar-menu user-menu">' . $variables['tree'] . '</ul>';
 }
 function actuos_menu_tree__main_menu($variables) {
 	return '<ul class="sidebar-menu main-menu">' . $variables['tree'] . '</ul>';
@@ -143,7 +143,7 @@ function actuos_menu_link(array $variables) {
 		}
 		
 	}
-	if ('menu_link__menu_system_menu' == $variables ['theme_hook_original']) {
+	if ('menu_link__user_menu' == $variables ['theme_hook_original']) {
 		
 		$variables['element']['#attributes']['class'][] = 'sub-menu';
 		if ('Notifications' == $variables ['element'] ['#title']) {

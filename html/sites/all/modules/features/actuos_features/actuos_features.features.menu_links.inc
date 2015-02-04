@@ -90,19 +90,16 @@ function actuos_features_menu_default_menu_links() {
     'weight' => -48,
     'customized' => 1,
   );
-  // Exported menu link: menu-system-menu_logout:user/logout
-  $menu_links['menu-system-menu_logout:user/logout'] = array(
-    'menu_name' => 'menu-system-menu',
+  // Exported menu link: user-menu_log-out:user/logout
+  $menu_links['user-menu_log-out:user/logout'] = array(
+    'menu_name' => 'user-menu',
     'link_path' => 'user/logout',
     'router_path' => 'user/logout',
-    'link_title' => 'Logout',
+    'link_title' => 'Log out',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-system-menu_logout:user/logout',
+      'identifier' => 'user-menu_log-out:user/logout',
     ),
-    'module' => 'menu',
+    'module' => 'system',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
@@ -110,9 +107,9 @@ function actuos_features_menu_default_menu_links() {
     'weight' => -47,
     'customized' => 1,
   );
-  // Exported menu link: menu-system-menu_news:news
-  $menu_links['menu-system-menu_news:news'] = array(
-    'menu_name' => 'menu-system-menu',
+  // Exported menu link: user-menu_news:news
+  $menu_links['user-menu_news:news'] = array(
+    'menu_name' => 'user-menu',
     'link_path' => 'news',
     'router_path' => 'news',
     'link_title' => 'News',
@@ -120,7 +117,7 @@ function actuos_features_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-system-menu_news:news',
+      'identifier' => 'user-menu_news:news',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -130,9 +127,9 @@ function actuos_features_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
-  // Exported menu link: menu-system-menu_notifications:notifications
-  $menu_links['menu-system-menu_notifications:notifications'] = array(
-    'menu_name' => 'menu-system-menu',
+  // Exported menu link: user-menu_notifications:notifications
+  $menu_links['user-menu_notifications:notifications'] = array(
+    'menu_name' => 'user-menu',
     'link_path' => 'notifications',
     'router_path' => 'notifications',
     'link_title' => 'Notifications',
@@ -140,7 +137,7 @@ function actuos_features_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-system-menu_notifications:notifications',
+      'identifier' => 'user-menu_notifications:notifications',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -150,19 +147,20 @@ function actuos_features_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: menu-system-menu_settings:settings
-  $menu_links['menu-system-menu_settings:settings'] = array(
-    'menu_name' => 'menu-system-menu',
-    'link_path' => 'settings',
-    'router_path' => 'settings',
+  // Exported menu link: user-menu_settings:user
+  $menu_links['user-menu_settings:user'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => 'user',
+    'router_path' => 'user',
     'link_title' => 'Settings',
     'options' => array(
+      'alter' => TRUE,
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-system-menu_settings:settings',
+      'identifier' => 'user-menu_settings:user',
     ),
-    'module' => 'menu',
+    'module' => 'system',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
@@ -172,7 +170,7 @@ function actuos_features_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Logout');
+  t('Log out');
   t('News');
   t('Notifications');
   t('Performance');

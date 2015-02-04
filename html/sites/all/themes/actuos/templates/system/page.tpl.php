@@ -29,7 +29,7 @@
                 <h3 class="menu_ttl">System</h3>
             
             
-            <?php print render($system_menu); ?>
+            <?php print render($user_menu); ?>
             <!-- sidebar menu end-->
         </div>
     </aside>
