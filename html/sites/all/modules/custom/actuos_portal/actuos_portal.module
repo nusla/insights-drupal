@@ -1,6 +1,7 @@
 <?php
 
 function actuos_portal_menu() {
+	$menu = array();
 	$menu['settings'] = array (
 			'title' => 'Settings',
 			'page callback' => '_actuos_portal_menu_settings_callback',
@@ -11,37 +12,37 @@ function actuos_portal_menu() {
 			'title' => 'Notifications',
 			'page callback' => '_actuos_portal_menu_notifications_callback',
 			'access callback' => 'user_is_logged_in',
-			'type' => MENU_NORMAL_ITEM,
+			'type' => MENU_CALLBACK,
 	);
 	$menu['news'] = array	(
 			'title' => 'News',
 			'page callback' => '_actuos_portal_menu_news_callback',
 			'access callback' => 'user_is_logged_in',
-			'type' => MENU_NORMAL_ITEM,
+			'type' => MENU_CALLBACK,
 	);
 	$menu['portfolio-analysis'] = array	(
 			'title' => 'Portfolio Analysis',
 			'page callback' => '_actuos_portal_menu_portfolio_analysis_callback',
 			'access callback' => 'user_is_logged_in',
-			'type' => MENU_NORMAL_ITEM,
+			'type' => MENU_CALLBACK,
 	);
 	$menu['performance'] = array	(
 			'title' => 'Performance',
 			'page callback' => '_actuos_portal_menu_performance_callback',
 			'access callback' => 'user_is_logged_in',
-			'type' => MENU_NORMAL_ITEM,
+			'type' => MENU_CALLBACK,
 	);
 	$menu['sale-management'] = array	(
 			'title' => 'Sale Management',
 			'page callback' => '_actuos_portal_menu_sale_management_callback',
 			'access callback' => 'user_is_logged_in',
-			'type' => MENU_NORMAL_ITEM,
+			'type' => MENU_CALLBACK,
 	);
 	$menu['post-sale'] = array	(
 			'title' => 'Post Sale',
 			'page callback' => '_actuos_portal_menu_post_sales_callback',
 			'access callback' => 'user_is_logged_in',
-			'type' => MENU_NORMAL_ITEM,
+			'type' => MENU_CALLBACK,
 	);
 	return $menu;
 }

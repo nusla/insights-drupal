@@ -7,7 +7,7 @@
 					class="actuos_logo img-responsive animated bounceInDown">
 			</div>
 			<div class="col-md-5 col-sm-7 col-md-offset-1 col-sm-offset-0 loginform_holder animated bounceInRight">
-				<?php print render($page['login']); ?>
+				<?php print $login_content; ?>
 				<?php print $messages; ?>
 				
 				

@@ -1,10 +1,10 @@
 <?php
 function actuos_theme(&$existing, $type, $theme, $path) {
 	$items = array ();
-	$items ['user_login_block'] = array (
-			'render element' => 'form',
-			'template' => 'templates/system/user-login-block' 
-	);
+// 	$items ['user_login_block'] = array (
+// 			'render element' => 'form',
+// 			'template' => 'templates/system/user-login-block' 
+// 	);
 	return $items;
 }
 function actuos_preprocess_user_login_block(&$variables) {
@@ -24,6 +24,9 @@ function actuos_preprocess_page(&$variables) {
 	drupal_add_js ( '//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js', 'external' );
 	if (! $variables ['logged_in']) {
 		$variables ['theme_hook_suggestions'] [] = 'page__front__anonymous';
+		$form = drupal_get_form('user_login_block');
+		$variables['login_content'] = drupal_render($form);
+// 		var_dump($variables['content']);
 	} else {
 		drupal_add_css(drupal_get_path('theme', 'actuos') . '/assets/stylesheets/customz.css', 'file');
 		drupal_add_css(drupal_get_path('theme', 'actuos') . '/assets/stylesheets/linicon_style.css', 'file');
