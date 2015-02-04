@@ -1,15 +1,4 @@
 <?php
-function actuos_theme(&$existing, $type, $theme, $path) {
-	$items = array ();
-// 	$items ['user_login_block'] = array (
-// 			'render element' => 'form',
-// 			'template' => 'templates/system/user-login-block' 
-// 	);
-	return $items;
-}
-function actuos_preprocess_user_login_block(&$variables) {
-	$variables ['rendered'] = drupal_render_children ( $variables ['form'] );
-}
 function actuos_preprocess_html(&$variables) {
 }
 function actuos_preprocess_page(&$variables) {
