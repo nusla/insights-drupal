@@ -6,3 +6,16 @@ table.rdAgDataTable{
 	width: 100%;
 	mmax-width: 100% !important;
 }
+
+th.rdAgDataTable td, table.rdAgDataTable th, table.rdAgDataTable th a, tr.rdAgHeaderRow th{
+	background-color: #E4E8EA;
+	font-weight: bold;
+}
+
+table.rdAgDataTable th[conditionalprocessed=true]{
+	color: #3498db;
+}
+
+table.rdAgDataTable tr{
+	line-height: 3em;
+}

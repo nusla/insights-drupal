@@ -90,23 +90,6 @@ function actuos_features_menu_default_menu_links() {
     'weight' => -48,
     'customized' => 1,
   );
-  // Exported menu link: user-menu_log-out:user/logout
-  $menu_links['user-menu_log-out:user/logout'] = array(
-    'menu_name' => 'user-menu',
-    'link_path' => 'user/logout',
-    'router_path' => 'user/logout',
-    'link_title' => 'Log out',
-    'options' => array(
-      'identifier' => 'user-menu_log-out:user/logout',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -47,
-    'customized' => 1,
-  );
   // Exported menu link: user-menu_news:news
   $menu_links['user-menu_news:news'] = array(
     'menu_name' => 'user-menu',
@@ -170,7 +153,6 @@ function actuos_features_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Log out');
   t('News');
   t('Notifications');
   t('Performance');
