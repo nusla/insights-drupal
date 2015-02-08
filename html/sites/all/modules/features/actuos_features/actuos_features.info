@@ -12,7 +12,6 @@ features[menu_links][] = main-menu_performance:performance
 features[menu_links][] = main-menu_portfolio-analysis:portfolio-analysis
 features[menu_links][] = main-menu_post-sale:post-sale
 features[menu_links][] = main-menu_sale-management:sale-management
-features[menu_links][] = user-menu_log-out:user/logout
 features[menu_links][] = user-menu_news:news
 features[menu_links][] = user-menu_notifications:notifications
 features[menu_links][] = user-menu_settings:user
