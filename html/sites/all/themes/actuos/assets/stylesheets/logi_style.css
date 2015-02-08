@@ -1,0 +1,8 @@
+.rms-body table.rdAgWrapper{
+	width: 100%;
+}
+
+table.rdAgDataTable{
+	width: 100%;
+	mmax-width: 100% !important;
+}
