@@ -12,9 +12,19 @@ th.rdAgDataTable td, table.rdAgDataTable th, table.rdAgDataTable th a, tr.rdAgHe
 	font-weight: bold;
 }
 
-table.rdAgDataTable th[conditionalprocessed=true]{
+table.rdAgDataTable th[conditionalprocessed=true] a{
 	color: #3498db;
 }
+table.rdAgDataTable th[conditionalprocessed=true]{
+	padding: 4px 0 0 0;
+}
+table.rdAgDataTable th[conditionalprocessed=true] > table{
+	border-bottom: 4px solid #3498db;
+}
+table.rdAgDataTable th[conditionalprocessed=true] span{
+        color: #3498db;
+}
+
 
 table.rdAgDataTable tr{
 	line-height: 3em;
