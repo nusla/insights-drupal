@@ -1,5 +1,8 @@
-.rms-body table.rdAgWrapper{
-	width: 100%;
+body{
+	background-color: #fff;
+}
+.rdThemeDataTable{
+	width: 99%;
 }
 
 table.rdAgDataTable{
@@ -7,9 +10,14 @@ table.rdAgDataTable{
 	mmax-width: 100% !important;
 }
 
-th.rdAgDataTable td, table.rdAgDataTable th, table.rdAgDataTable th a, tr.rdAgHeaderRow th{
+
+.rdThemeDataTableHeader{
+	border: none;
 	background-color: #E4E8EA;
 	font-weight: bold;
+}
+.rdThemeDataTableHeader a {
+	color: #363b42;
 }
 
 table.rdAgDataTable th[conditionalprocessed=true] a{
@@ -26,6 +34,41 @@ table.rdAgDataTable th[conditionalprocessed=true] span{
 }
 
 
-table.rdAgDataTable tr{
-	line-height: 3em;
+table.rdThemeDataTable tr{
+	line-height: 4em;
+}
+
+table.rdThemePaging {
+	width: 100%;
+	background-color: #fff;
+}
+
+table.rdThemePaging td{
+	float: right;
+}
+
+.rdThemePaging a span, .rdThemePagingCurrent{
+	min-width: 25px;
+	display: block;
+	float: left;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	text-align: center;
+	padding: 15px 10px;
+	color: #3498db;
+	font-size: 1em;
+	font-weight: bold;
+}
+.rdThemePagingCurrent{
+	background-color: #3498db;
+	color: #fff;
+}
+
+#colTableExportControls{
+	width: 200px;
+	float: right;
+}
+#dataTable-FirstPageCaption {
+	border-left: 1px solid #ccc;
 }

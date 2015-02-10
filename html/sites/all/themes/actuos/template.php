@@ -34,6 +34,7 @@ function actuos_preprocess_page(&$variables) {
 	
 	switch (current_path()){
 		case 'portfolio-analysis':
+		case 'sampple':
 			$color = 'red';
 			$header_icon = array('fa-pie-chart');
 			break;
