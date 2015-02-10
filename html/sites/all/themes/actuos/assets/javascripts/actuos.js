@@ -1,8 +1,10 @@
 Drupal.behaviors.actuos = {
   attach: function (context, settings) {
 	  
-	  
-	  console.log(EmbeddedReporting)
+	  window.onload = function(){
+		  console.log(jQuery('iframe').css('min-height', '1500px'));
+	  };
+	  /*
 	  var emb;
 	  for (var i in EmbeddedReporting.reports){
 		  if ('object' === typeof EmbeddedReporting.reports[i]){
@@ -11,6 +13,7 @@ Drupal.behaviors.actuos = {
 			  //Extend onLoad function
 			  emb.iframe.onload = (function(_super){
 				  return function() {
+					  this.offsetHeight = 1500;
 				        console.log(this)
 				        return _super.apply(this, arguments);
 				  };
@@ -18,6 +21,7 @@ Drupal.behaviors.actuos = {
 		  }
 		  
 	  }
+	  */
 	  
 	if (!window.matchMedia('(max-width: 767px)').matches) return;
 	

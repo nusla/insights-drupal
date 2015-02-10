@@ -10,7 +10,9 @@ table.rdAgDataTable{
 	mmax-width: 100% !important;
 }
 
-
+.rms-table-header{
+	clear: both;
+}
 .rdThemeDataTableHeader{
 	border: none;
 	background-color: #E4E8EA;
