@@ -11543,3 +11543,6 @@ button.log_in:focus {
 .login-form-wrapper .form-item-name {
   position: relative;
 }
+.logi-content iframe {
+  width: 100%;
+}

@@ -2,9 +2,16 @@ Drupal.behaviors.actuos = {
   attach: function (context, settings) {
 	  
 	  window.onload = function(){
-		  console.log(jQuery('iframe').css('min-height', '1500px'));
+		  setTimeout(function(){ 
+			  var frame = jQuery('.logi-content iframe');
+			  frame.css('height', parseInt(frame.attr('height')) + 50 + 'px')
+			 console.log('ee1')
+			 console.log('--')
+		  }, 100);
+		  
+		  
 	  };
-	  /*
+	  
 	  var emb;
 	  for (var i in EmbeddedReporting.reports){
 		  if ('object' === typeof EmbeddedReporting.reports[i]){
@@ -13,15 +20,16 @@ Drupal.behaviors.actuos = {
 			  //Extend onLoad function
 			  emb.iframe.onload = (function(_super){
 				  return function() {
-					  this.offsetHeight = 1500;
-				        console.log(this)
+					  //this.offsetHeight = 1500;
+						 console.log('ee2')
+						 console.log('--')
 				        return _super.apply(this, arguments);
 				  };
 			  })(emb.iframe.onload);
 		  }
 		  
 	  }
-	  */
+	  
 	  
 	if (!window.matchMedia('(max-width: 767px)').matches) return;
 	

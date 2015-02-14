@@ -5,33 +5,33 @@ body{
 	width: 99%;
 }
 
-table.rdAgDataTable{
+table.insights-data-table{
 	width: 100%;
-	mmax-width: 100% !important;
+	max-width: 100% !important;
 }
 
 .rms-table-header{
 	clear: both;
 }
-.rdThemeDataTableHeader{
+.rdThemeDataTableHeader table td{
 	border: none;
 	background-color: #E4E8EA;
 	font-weight: bold;
 }
-.rdThemeDataTableHeader a {
+.rdThemeDataTableHeader table td a {
 	color: #363b42;
 }
 
-table.rdAgDataTable th[conditionalprocessed=true] a{
+table.insights-data-table th[conditionalprocessed=true] a{
 	color: #3498db;
 }
-table.rdAgDataTable th[conditionalprocessed=true]{
+table.insights-data-table th[conditionalprocessed=true]{
 	padding: 4px 0 0 0;
 }
-table.rdAgDataTable th[conditionalprocessed=true] > table{
+table.insights-data-table th[conditionalprocessed=true] > table{
 	border-bottom: 4px solid #3498db;
 }
-table.rdAgDataTable th[conditionalprocessed=true] span{
+table.insights-data-table th[conditionalprocessed=true] span{
         color: #3498db;
 }
 
