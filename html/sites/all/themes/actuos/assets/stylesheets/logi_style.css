@@ -13,9 +13,13 @@ table.insights-data-table{
 .rms-table-header{
 	clear: both;
 }
+.rdThemeDataTableHeader{
+	border-right: none;
+	background-color: #E4E8EA;
+}
 .rdThemeDataTableHeader table td{
 	border: none;
-	background-color: #E4E8EA;
+	background-color: #E4E8EA !important;
 	font-weight: bold;
 }
 .rdThemeDataTableHeader table td a {
@@ -68,9 +72,36 @@ table.rdThemePaging td{
 }
 
 #colTableExportControls{
-	width: 200px;
 	float: right;
 }
 #dataTable-FirstPageCaption {
 	border-left: 1px solid #ccc;
+}
+
+.export-div {
+	display: block;
+	min-width: 200px;
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+	font-size: 1.3em;
+}
+.export-div:last-child {
+	border-bottom: none;
+}
+#colTableExportControls{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+	position: absolute;
+	right: 0;
+}
+.export-div .fa:before{
+	margin-right: 15px;
+	color: #61C26F;
+}
+.export-csv-div .fa:before, .export-xls-div .fa:before{
+	color:#61C26F;
+}
+.export-pdf-div .fa:before{
+	color:#BB0706;
 }
