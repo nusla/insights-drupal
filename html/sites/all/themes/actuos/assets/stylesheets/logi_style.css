@@ -94,6 +94,8 @@ table.rdThemePaging td{
 	background-color: #fff;
 	position: absolute;
 	right: 0;
+	top:75px;
+	display: none;
 }
 .export-div .fa:before{
 	margin-right: 15px;
@@ -104,4 +106,42 @@ table.rdThemePaging td{
 }
 .export-pdf-div .fa:before{
 	color:#BB0706;
+}
+.export-menu-container{
+	display: block;
+	text-align: right;
+}
+
+#export-menu-button fa{
+	font-size: 2em;
+	border: 1px solid #E4E8EA;
+	padding: 10px;
+	color: #728084;
+}
+#export-menu-container{
+	display: block;
+	border: 1px solid #E4E8EA;
+	height: 70px;
+	vertical-align: middle;
+	position: relative;
+	margin: 0 0 20px 0;
+}
+#export-menu-button{
+	height: 70px;
+	width: 70px;
+	border-left: 1px solid #E4E8EA;
+	display: block;
+	float: right;
+	text-align: center;
+	vertical-align: middle;
+	color: #728084;
+	font-size: 24px;
+	cursor: pointer;
+}
+#export-menu-button > span{
+	position: absolute;
+	top: 50%;
+	margin-top: -16px;
+	right: 0;
+	width: 70px;
 }
