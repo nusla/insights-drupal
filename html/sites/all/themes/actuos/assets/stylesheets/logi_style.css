@@ -90,7 +90,7 @@ table.rdThemePaging td{
 }
 #colTableExportControls{
 	border: 1px solid #ccc;
-	border-radius: 5px;
+	border-radius: 3px;
 	background-color: #fff;
 	position: absolute;
 	right: 0;
@@ -144,4 +144,17 @@ table.rdThemePaging td{
 	margin-top: -16px;
 	right: 0;
 	width: 70px;
+}
+
+#report-filter{
+	float: left;
+	margin: 1em;
+}
+#reportFilter{
+	width: 25em;
+}
+#insightsDateRangeSelector{
+	width: 25em;
+	float: left;
+	margin: 1em 1em 1em 10em;
 }

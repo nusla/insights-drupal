@@ -4,9 +4,7 @@ Drupal.behaviors.actuos = {
 	  window.onload = function(){
 		  setTimeout(function(){ 
 			  var frame = jQuery('.logi-content iframe');
-			  frame.css('height', parseInt(frame.attr('height')) + 50 + 'px')
-			 console.log('ee1')
-			 console.log('--')
+			  frame.css('height', parseInt(frame.attr('height')) + 50 + 'px');
 		  }, 100);
 		  
 		  
