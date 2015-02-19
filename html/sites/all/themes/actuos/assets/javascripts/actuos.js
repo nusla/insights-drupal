@@ -5,7 +5,7 @@ Drupal.behaviors.actuos = {
 		  setTimeout(function(){ 
 			  var frame = jQuery('.logi-content iframe');
 			  frame.css('height', parseInt(frame.attr('height')) + 50 + 'px');
-		  }, 100);
+		  }, 1000);
 		  
 		  
 	  };

@@ -120,7 +120,7 @@ table.rdThemePaging td{
 }
 #export-menu-container{
 	display: block;
-	border: 1px solid #E4E8EA;
+	border-bottom: 1px solid #E4E8EA;
 	height: 70px;
 	vertical-align: middle;
 	position: relative;
@@ -145,16 +145,55 @@ table.rdThemePaging td{
 	right: 0;
 	width: 70px;
 }
+#report-filter-container{
+	height: 100%;
+	width: 15em;
+	border-right: 1px solid #E4E8EA;
+	cursor: pointer;
+	float: left;
+	position: relative;
+}
 
 #report-filter{
-	float: left;
-	margin: 1em;
+	margin: -10px 1em 0 0;
+	height: 20px;
+	font-size: 13px;
+	font-weight: bold;
+	text-transform: uppercase;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 100%;
 }
-#reportFilter{
-	width: 25em;
-}
+
 #insightsDateRangeSelector{
 	width: 25em;
 	float: left;
 	margin: 1em 1em 1em 10em;
+}
+#report-filter > span{
+	margin-left: 2em;
+}
+#filter-direction-icon{
+	float: right;
+	margin-right: 1em;
+	font-weight: bold;
+	font-size: 1.2em;
+
+}
+#insightsDateRangeSelector3{
+	float: left;
+}
+
+#filter-dropdown-content{
+	border-bottom: 1px solid #E4E8EA;
+	margin-bottom: 2em;
+	padding: 1em;
+	display: none;
+}
+
+.clear-bottom-border{
+	border-bottom: 1px solid #fff;
+	margin-bottom: -1px;
+	margin-top: 1px;
 }
