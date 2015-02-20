@@ -66,6 +66,10 @@ table.rdThemePaging td{
 	font-size: 1em;
 	font-weight: bold;
 }
+
+.rdThemePaging rdcondelement1 a span{
+	border-left: 1px solid #ccc;
+}
 .rdThemePagingCurrent{
 	background-color: #3498db;
 	color: #fff;
@@ -167,11 +171,8 @@ table.rdThemePaging td{
 }
 
 #insightsDateRangeSelector{
-	min-width: 25em;
 	height: 1.4em;
-}
-#insightsDateRangeSelectorDiv .daterangepicker{
-	width: 50em;
+	cursor: pointer;
 }
 #report-filter > span{
 	margin-left: 2em;
@@ -187,12 +188,14 @@ table.rdThemePaging td{
 	float: left;
 	height: 100%;
 	position: relative;
+	width: 50em;
 }
 #insightsDateRangeSelectorDiv{
 	position: absolute;
-	left: 2em;
+	right: 0;
 	top: 50%;
 	margin-top: -0.7em;
+	width: 50em;
 }
 
 #filter-dropdown-content{

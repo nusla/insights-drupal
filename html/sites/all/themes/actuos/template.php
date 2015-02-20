@@ -11,7 +11,9 @@ function actuos_preprocess_page(&$variables) {
 	
 	drupal_add_js ( '//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js', 'external' );
 	drupal_add_js ( '//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js', 'external' );
-	if (! $variables ['logged_in']) {
+	
+	
+	if (! $variables ['logged_in'] && $variables ['is_front']) {
 		$variables ['theme_hook_suggestions'] [] = 'page__front__anonymous';
 		$form = drupal_get_form('user_login_block');
 		$variables['login_content'] = drupal_render($form);
