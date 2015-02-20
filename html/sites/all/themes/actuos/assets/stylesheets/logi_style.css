@@ -167,9 +167,11 @@ table.rdThemePaging td{
 }
 
 #insightsDateRangeSelector{
-	width: 25em;
-	float: left;
-	margin: 1em 1em 1em 10em;
+	min-width: 25em;
+	height: 1.4em;
+}
+#insightsDateRangeSelectorDiv .daterangepicker{
+	width: 50em;
 }
 #report-filter > span{
 	margin-left: 2em;
@@ -179,10 +181,18 @@ table.rdThemePaging td{
 	margin-right: 1em;
 	font-weight: bold;
 	font-size: 1.2em;
-
 }
-#insightsDateRangeSelector3{
+
+#insightsDateRangeSelectorSection{
 	float: left;
+	height: 100%;
+	position: relative;
+}
+#insightsDateRangeSelectorDiv{
+	position: absolute;
+	left: 2em;
+	top: 50%;
+	margin-top: -0.7em;
 }
 
 #filter-dropdown-content{
