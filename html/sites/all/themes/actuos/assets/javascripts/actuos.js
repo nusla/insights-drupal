@@ -10,20 +10,20 @@ Drupal.behaviors.actuos = {
 		  
 	  };
 	  
-	  var emb;
-	  for (var i in EmbeddedReporting.reports){
-		  if ('object' === typeof EmbeddedReporting.reports[i]){
-			  emb = EmbeddedReporting.reports[i];
+	  if (typeof EmbeddedReporting != 'undefined') {
+		  var emb;
+		  for (var i in EmbeddedReporting.reports){
+			  if ('object' === typeof EmbeddedReporting.reports[i]){
+				  emb = EmbeddedReporting.reports[i];
+				  
+				  //Extend onLoad function
+				  emb.iframe.onload = (function(_super){
+					  return function() {
+						  return _super.apply(this, arguments);
+					  };
+				  })(emb.iframe.onload);
+			  }
 			  
-			  //Extend onLoad function
-			  emb.iframe.onload = (function(_super){
-				  return function() {
-					  //this.offsetHeight = 1500;
-						 console.log('ee2')
-						 console.log('--')
-				        return _super.apply(this, arguments);
-				  };
-			  })(emb.iframe.onload);
 		  }
 		  
 	  }
