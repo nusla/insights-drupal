@@ -1,0 +1,4 @@
+name = Logi Reports
+description = "Generate Logi reports"
+core = 7.x
+package = Actuos Custom Modules
