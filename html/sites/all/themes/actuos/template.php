@@ -28,39 +28,59 @@ function actuos_preprocess_page(&$variables) {
 		drupal_add_js(drupal_get_path('theme', 'actuos') . '/assets/javascripts/jquery.touchSwipe.min.js', 'file');
 		drupal_add_js(drupal_get_path('theme', 'actuos') . '/assets/javascripts/actuos.js');
 	}
-	
+	$variables['submenu'] = array();
 	$variables['main_menu'] = menu_tree('main-menu');
-	
 	$variables['user_menu'] = menu_tree('user-menu');
-	// $variables['main_menu']['#theme_wrappers'] = array('menu_tree__primary');
 	
-	switch (current_path()){
-		case 'portfolio-analysis':
-		case 'node/1':
+// 	dpm($variables['user_menu']);
+// 	dpm($variables['main_menu']);
+	$activePageTitle = '';
+	foreach ($variables['user_menu'] as $key => $menu){
+		if(isset($menu['#below']) && count($menu['#below'])){
+			$variables['submenu'] += $menu['#below'];
+			$variables['user_menu'][$key]['#below'] = array();
+		}
+		if (isset($menu['#original_link']) && $menu['#original_link']['in_active_trail']){
+			$activePageTitle = $menu['#title'];
+		}
+	}
+	foreach ($variables['main_menu'] as $key => $menu){
+		if(isset($menu['#below']) && count($menu['#below'])){
+			$variables['submenu'] += $menu['#below'];
+			$variables['main_menu'][$key]['#below'] = array();
+		}
+		if (isset($menu['#original_link']) && $menu['#original_link']['in_active_trail']){
+			$activePageTitle = $menu['#title'];
+		}
+		
+	}
+	// $variables['main_menu']['#theme_wrappers'] = array('menu_tree__primary');
+	switch ($activePageTitle){
+		case 'Portfolio Analysis':
 			$color = 'red';
 			$header_icon = array('fa-pie-chart');
 			break;
-		case 'performance':
+		case 'Performance':
 			$color = 'green';
 			$header_icon = array('fa-bar-chart');
 			break;
-		case 'sale-management':
+		case 'Sale Management':
 			$color = 'blue';
 			$header_icon = array('fa-dollar');
 			break;
-		case 'post-sale':
+		case 'Post Sale':
 			$color = 'yellow';
 			$header_icon = array('fa-connectdevelop');
 			break;
-		case 'notifications':
+		case 'Notifications':
 			$color = 'gray';
 			$header_icon = array('fa-bell');
 			break;
-		case 'news':
+		case 'News':
 			$color = 'gray';
 			$header_icon = array('fa-newspaper-o');
 			break;
-		case 'settings':
+		case 'Settings':
 			$color = 'gray';
 			$header_icon = array('fa-cog');
 			break;

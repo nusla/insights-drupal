@@ -25,6 +25,7 @@
 				</div>
                 <h3 class="menu_ttl">Main</h3>
                 <?php print render($main_menu); ?>
+               
            
                 <h3 class="menu_ttl">System</h3>
             
@@ -60,12 +61,11 @@
 
             <nav class="navbar navbar-default navbar-left dashnav">
                    
-                    <ul class="nav">
-                   <!-- 
-                        <li><a href="#">Worklist</a></li>
-                        <li><a href="#">Overview</a></li>
+                    <ul class="nav submenu <?php print $page_color; ?>menu">
+                   
+                         <?php print render($submenu); ?>
                     </ul>
-                    -->
+                   
             </nav>
 
 			<div class="content-dashboard"><?php print $messages; ?><?php print render($page['content']); ?>
