@@ -11471,6 +11471,9 @@ button.log_in:focus {
     margin-top: 0;
   }
 }
+body {
+  font-size: 10px;
+}
 .login-form-wrapper .form-required {
   display: none;
 }

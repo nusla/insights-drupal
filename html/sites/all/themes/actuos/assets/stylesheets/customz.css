@@ -1,3 +1,4 @@
+
 .header {
     position: static;
     height: 100px;
@@ -44,7 +45,7 @@
 
 
 h3.menu_ttl {
-    font-size: 1.2rem;
+    font-size: 1.2em;
     font-weight: 700;
     padding-left: 15px;
     color: #ccc;
@@ -65,7 +66,7 @@ h3.menu_ttl {
     display: inline-block;
     float: right;
     top: 15%;
-    right: 7%;
+    right: 2em;
 }
 
 .header_icon {
@@ -73,12 +74,12 @@ h3.menu_ttl {
     line-height: 2.6;
     float: left;
     color: #ffffff;
-    font-size: 2.5rem;
+    font-size: 2.5em;
 }
 
 .header_ttl {
     position: relative;
-    font-size: 2.5rem;
+    font-size: 2em;
     left: 5%;
     font-weight: 300;
     color: #ffffff;
@@ -87,21 +88,21 @@ h3.menu_ttl {
 
 .header_subttl {
     position: relative;
-    font-size: 2.5rem;
+    font-size: 2em;
     font-weight: 300;
     color: #ffffff;
     float: left;
 }
 
 
-.main-menu i.fa {font-size: 2.4rem;}
+.main-menu i.fa {font-size: 2.4em;}
 .main-menu li.red-icon a:hover i.fa, .main-menu li.red-icon a:focus i.fa, .main-menu li.red-icon a.active i.fa {color: #e74c3c;}
 .main-menu li.green-icon a:hover i.fa, .main-menu li.green-icon a:focus i.fa, .main-menu li.green-icon a.active i.fa {color: #1abc9c;}
 .main-menu li.blue-icon a:hover i.fa, .main-menu li.blue-icon a:focus i.fa, .main-menu li.blue-icon a.active i.fa {color: #3498db;}
 .main-menu li.yellow-icon a:hover i.fa, .main-menu li.yellow-icon a:focus i.fa, .main-menu li.yellow-icon a.active i.fa {color: #f1c40f;}
 
 .main-menu i.fa{
-	font-size: 2.4rem;
+	font-size: 2.4em;
 }
 
 
@@ -122,7 +123,7 @@ ul.nav.submenu {
 
 
 ul.nav.submenu li a {
-    font-size: 1.3rem;
+    font-size: 1.3em;
     font-weight: 700;
     color: #999;
     text-transform: uppercase;
@@ -134,26 +135,26 @@ ul.nav.submenu li a {
     transition: all 0.3s ease;
 }
 
-ul.nav.submenu.redmenu li a:hover, ul.nav.submenu.redmenu li a:focus {
+ul.nav.submenu.redmenu li a:hover, ul.nav.submenu.redmenu li a:focus, ul.nav.submenu.redmenu li.active-trail a{
     color: #333;
     border-bottom: 3px solid #e74c3c;
 }
 
-ul.nav.submenu.greenmenu li a:hover, ul.nav.submenu.greenmenu li a:focus {
+ul.nav.submenu.greenmenu li a:hover, ul.nav.submenu.greenmenu li a:focus, ul.nav.submenu.greenmenu li.active-trail a {
     color: #333;
     border-bottom: 3px solid #1abc9c;
 }
 
-ul.nav.submenu.blumenu li a:hover, ul.nav.submenu.blumenu li a:focus {
+ul.nav.submenu.bluemenu li a:hover, ul.nav.submenu.bluemenu li a:focus, ul.nav.submenu.bluemenu li.active-trail a {
     color: #333;
     border-bottom: 3px solid #3498db;
 }
 
-ul.nav.submenu.yellowmenu li a:hover, ul.nav.submenu.yellowmenu li a:focus {
+ul.nav.submenu.yellowmenu li a:hover, ul.nav.submenu.yellowmenu li a:focus, ul.nav.submenu.yellowmenu li.active-trail a {
     color: #333;
     border-bottom: 3px solid #f1c40f;
 }
-ul.nav.submenu.graymenu li a:hover, ul.nav.submenu.graymenu li a:focus {
+ul.nav.submenu.graymenu li a:hover, ul.nav.submenu.graymenu li a:focus, ul.nav.submenu.graymenu li.active-trail a {
     color: #333;
     border-bottom: 3px solid #728084;
 }

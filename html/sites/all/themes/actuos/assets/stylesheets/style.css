@@ -19,7 +19,7 @@ body {
 
 .portfolio_m {
     margin-bottom: 20px;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
@@ -353,7 +353,7 @@ ul.sidebar-menu li a{
     text-decoration: none;
     display: block;
     padding: 15px 0 15px 10px;
-    font-size: 1.4rem;
+    font-size: 1.4em;
     outline: none;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
