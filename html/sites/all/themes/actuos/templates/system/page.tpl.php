@@ -21,7 +21,7 @@
                 <div class="centered"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><img src="<?php print $logo; ?>" class="dashlogo center-block img-responsive"></a></div>
                 <h5 class="centered portfolio_m">Portfolio Manager</h5>
 				<div class="input-group search">
-					<span class="input-group-addon search-field-container"><i class="fa fa-search"></i></span><input id="search-field" class="form-control" type="text" placeholder="Search">
+					<span id="search-icon" class="input-group-addon search-field-container"><i class="fa fa-search"></i></span><input id="search-field" class="form-control" type="text" placeholder="Search">
 				</div>
                 <h3 class="menu_ttl">Main</h3>
                 <?php print render($main_menu); ?>

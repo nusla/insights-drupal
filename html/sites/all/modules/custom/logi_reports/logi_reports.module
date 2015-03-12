@@ -8,6 +8,12 @@ function logi_reports_menu() {
 			'access callback' => 'user_is_logged_in',
 			'type' => MENU_CALLBACK,
 	);
+	$menu['srch'] = array (
+			'page callback' => '_logi_reports_search_callback',
+			'page arguments' => array(),
+			'access callback' => 'user_is_logged_in',
+			'type' => MENU_CALLBACK,
+	);
 	return $menu;
 }
 
@@ -24,6 +30,23 @@ function _logi_reports_report_callback($report){
 	$return['logi_js_container'] = array(
 			'#markup' => '<script src="' . variable_get('logi_url') . 'logi/rdTemplate/rdEmbedApi/rdEmbed.js" type="text/Javascript"></script>'
 	);
+	
+	return $return;
+}
+function _logi_reports_search_callback(){
+	$p = filter_input(INPUT_GET, "p", FILTER_DEFAULT);
+	drupal_set_title($p);
+	$return = array();
+	
+// 	$return['report_container'] = array(
+// 			'#markup' => '
+// 				<div class="graph logi-content">
+// 					<div id="logi-report-div" data-autoSizing="all"  data-applicationUrl="' . variable_get('logi_url') . 'logi" data-report="' . $report . '" ></div>
+// 				</div>'
+// 	);
+// 	$return['logi_js_container'] = array(
+// 			'#markup' => '<script src="' . variable_get('logi_url') . 'logi/rdTemplate/rdEmbedApi/rdEmbed.js" type="text/Javascript"></script>'
+// 	);
 	
 	return $return;
 }

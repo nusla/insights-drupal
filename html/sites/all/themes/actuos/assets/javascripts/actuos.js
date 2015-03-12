@@ -28,6 +28,23 @@ Drupal.behaviors.actuos = {
 		  
 	  }
 	  
+	  var redirect2searchURL = function(){
+		  var p = Drupal.encodePath(jQuery('#search-field').val());
+		  if (!p.length) return;
+		  window.location.href = Drupal.settings.basePath + 'srch/?p=' + p;
+	  };
+	  
+	  jQuery('#search-field').on('keypress', function(e){
+		  if (e.which == 13) {
+			  redirect2searchURL();
+		  }
+	  });
+	  
+	  jQuery('#search-icon').on('click', function(){
+		  redirect2searchURL();
+	  });
+	  
+	  
 	  
 	if (!window.matchMedia('(max-width: 767px)').matches) return;
 	
@@ -52,6 +69,7 @@ Drupal.behaviors.actuos = {
 		}, 
 		threshold:10
 	});
+   
     
   }
 };
