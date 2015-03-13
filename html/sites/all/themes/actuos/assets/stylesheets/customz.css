@@ -162,3 +162,9 @@ ul.nav.submenu.graymenu li a:hover, ul.nav.submenu.graymenu li a:focus, ul.nav.s
 ul.nav.submenu ul.sidebar-menu li.sub-menu {
   height: 50px;
 }
+
+
+iframe.spinner{
+	height: 50em;
+	background:url('../images/spinner.gif') no-repeat center top;
+}

@@ -1,9 +1,12 @@
 Drupal.behaviors.actuos = {
   attach: function (context, settings) {
 	  
+	  var frame = jQuery('.logi-content iframe');
+	  frame.addClass('spinner');
+
 	  window.onload = function(){
+		  frame.removeClass('spinner');
 		  setTimeout(function(){ 
-			  var frame = jQuery('.logi-content iframe');
 			  frame.css('height', parseInt(frame.attr('height')) + 50 + 'px');
 		  }, 1000);
 		  
