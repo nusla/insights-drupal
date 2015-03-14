@@ -16,7 +16,7 @@
 				
 			</div>
 			<div class="center-block">
-				<a href="#" class="center-block"> <img src="<?php print base_path() . drupal_get_path('theme', 'actuos'); ?>/assets/images/rms_lowerlogo.png" class="center-block img-responsive rms_itself animated bounceInUp"></a>
+				<a href="#" class="center-block rms-logo-bottom"> <img src="<?php print base_path() . drupal_get_path('theme', 'actuos'); ?>/assets/images/rms_lowerlogo.png" class="center-block img-responsive rms_itself animated bounceInUp"></a>
 			</div>
 		</div>
 		<!-- Row END -->

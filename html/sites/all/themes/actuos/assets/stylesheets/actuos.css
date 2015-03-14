@@ -11311,8 +11311,10 @@ button.log_in:focus {
 .rms_itself {
   margin-top: 37%;
   width: 8%;
-  position: relative;
+  position: absolute;
   z-index: 6666;
+  right: 50%;
+  margin-left: -50%;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
@@ -11562,4 +11564,8 @@ body {
 }
 #search-icon {
   cursor: pointer;
+}
+.rms-logo-bottom {
+  width: 100%;
+  position: relative;
 }
