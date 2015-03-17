@@ -1,11 +1,23 @@
 Drupal.behaviors.actuos = {
   attach: function (context, settings) {
 	  
+	  
 	  var frame = jQuery('.logi-content iframe');
-	  frame.addClass('spinner');
+	  var frameParent = jQuery('#logi-report-div');
+	  frameParent.addClass('spinner');
 
+	  var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+	  var eventer = window[eventMethod];
+	  var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+	  
+	  // Listen to message from child window
+	  eventer(messageEvent,function(e) {
+		  if ('"Reload"' === e.data){
+			  frameParent.addClass('spinner');
+		  }
+	  },false);
+	  
 	  window.onload = function(){
-		  frame.removeClass('spinner');
 		  setTimeout(function(){ 
 			  frame.css('height', parseInt(frame.attr('height')) + 50 + 'px');
 		  }, 1000);
@@ -22,6 +34,7 @@ Drupal.behaviors.actuos = {
 				  //Extend onLoad function
 				  emb.iframe.onload = (function(_super){
 					  return function() {
+						  frameParent.removeClass('spinner');
 						  return _super.apply(this, arguments);
 					  };
 				  })(emb.iframe.onload);
