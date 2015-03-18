@@ -18,7 +18,7 @@ Drupal.behaviors.actuos = {
 	  },false);
 	  
 	  window.onload = function(){
-		  setTimeout(function(){ 
+		  setTimeout(function(){
 			  frame.css('height', parseInt(frame.attr('height')) + 50 + 'px');
 		  }, 1000);
 		  
