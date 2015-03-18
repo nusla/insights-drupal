@@ -169,5 +169,5 @@ ul.nav.submenu ul.sidebar-menu li.sub-menu {
 	background:url('../images/spinner.gif') no-repeat center 10em;
 }
 .spinner iframe{
-	visibility: hidden;
+	display: none;
 }
