@@ -1,6 +1,9 @@
 Drupal.behaviors.actuos = {
   attach: function (context, settings) {
 	  
+	  jQuery("#sidebar").css({"margin-top": "-" + jQuery("body").css("padding-top"), "padding-top": jQuery("body").css("padding-top")});
+	  jQuery("#sidebar").niceScroll({styler:"fb",cursorcolor:"#4ECDC4", cursorwidth: '3', cursorborderradius: '10px', background: '#404040', spacebarenabled:false, cursorborder: ''});
+	  
 	  
 	  var frame = jQuery('.logi-content iframe');
 	  var frameParent = jQuery('#logi-report-div');

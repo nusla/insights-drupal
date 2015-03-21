@@ -77,11 +77,3 @@
         </section>
     </section>
 </section>
-<script>
-jQuery( document ).ready(function() {
-	jQuery("#sidebar").css({"margin-top": "-" + jQuery("body").css("padding-top"), "padding-top": jQuery("body").css("padding-top")});
-	jQuery("#sidebar").niceScroll({styler:"fb",cursorcolor:"#4ECDC4", cursorwidth: '3', cursorborderradius: '10px', background: '#404040', spacebarenabled:false, cursorborder: ''});
-});
-
-
-</script>
