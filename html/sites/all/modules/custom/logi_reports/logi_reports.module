@@ -34,7 +34,7 @@ function _logi_reports_report_callback($report){
 			'
 	);
 	
-	drupal_add_js(variable_get('logi_url') . 'logi/rdTemplate/rdEmbedApi/rdEmbedMy.js', array('scope' => 'footer'));
+	drupal_add_js(variable_get('logi_url') . 'logi/rdTemplate/rdEmbedApi/rdEmbedMy.js', array('scope' => 'footer', 'type' => 'external'));
 // 	drupal_add_js('EmbeddedReporting.init();',  array('scope' => 'footer', 'type' => 'inline', 'weight' => -100));
 // 	$return['logi_js_container'] = array(
 // 			'#markup' => '<script src="' . variable_get('logi_url') . 'logi/rdTemplate/rdEmbedApi/rdEmbed.js" type="text/Javascript"></script>'

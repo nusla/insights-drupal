@@ -198,3 +198,108 @@ function actuos_menu_link(array $variables) {
 	}
 	return theme_menu_link ( $variables );
 }
+
+
+/**
+ * Implements hook_js_alter()
+ *
+ * Moves scripts from the header scope (and others) to the footer, maintaining
+ * their relative positions by adjusting script groups while also making
+ * sure settings are positioned just after the original header scripts.
+ */
+function actuos_js_alter(&$javascript) {
+	// List the scripts we want in to remain in their original scope.
+	$untouched_scripts = array(
+	//   'sites/all/libraries/modernizr/modernizr.min.js',
+	);
+
+	$scopes = array(
+			'header' => array(),
+			'other' => array(),
+			'footer' => array(),
+	);
+	// Scope group weights.
+	$header_max = NULL;
+	$other_min = NULL;
+	$other_max = NULL;
+	$footer_min = NULL;
+
+	foreach ($javascript as $key => &$script) {
+		// Categorize scripts by original scope.
+		switch ($script['scope']) {
+			case 'header':
+				// Find the last header group weight.
+				if (!isset($header_max) || $script['group'] > $header_max) {
+					$header_max = $script['group'];
+				}
+
+			case 'footer':
+				// Find the first footer group weight.
+				if (!isset($footer_min) || $script['group'] < $footer_min) {
+					$footer_min = $script['group'];
+				}
+				$scopes[$script['scope']][] = &$script;
+				break;
+
+				// It's impossible for to know in which order scopes defined by a
+				// theme will be rendered, so just put them all together for now.
+				// Ordering these scopes, if needed, is left as an exercise for the reader.
+			default:
+				// Find the first other group weight.
+				if (!isset($other_min) || $script['group'] < $other_min) {
+					$other_min = $script['group'];
+				}
+				// Find the last other group.
+				if (!isset($other_max) || $script['group'] > $other_max) {
+					$other_max = $script['group'];
+				}
+				$scopes['other'][] = &$script;
+		}
+		// Move scripts to footer.
+		if ($script['scope'] !== 'footer' && !in_array($script['data'], $untouched_scripts)) {
+			$script['scope'] = 'footer';
+		}
+	}
+	if (!isset($header_max)) {
+		// Just in case there were no header scripts.
+		$header_max = -1;
+	}
+
+	$last_max = $header_max + 1;
+
+	// Add settings as an inline script after the last header group.
+	if (isset($javascript['settings'])) {
+		$inline_settings = array(
+				'type' => 'inline',
+				'scope' => 'footer',
+				'data' => 'jQuery.extend(Drupal.settings, ' . drupal_json_encode(drupal_array_merge_deep_array($javascript['settings']['data'])) . ");",
+				'group' => $last_max,
+				'every_page' => TRUE,
+				'weight' => 0,
+		) + drupal_js_defaults();
+		// No need for drupal_get_js() to do this again.
+		unset($javascript['settings']);
+
+		$javascript['inline_settings'] = $inline_settings;
+	}
+
+	// If there are other scopes, push them all down below the header scripts.
+	if (isset($other_min) && $other_min <= $last_max) {
+		$diff = $last_max - $other_min + 1;
+		foreach ($scopes['other'] as $key => &$script) {
+			$script['group'] += $diff;
+		}
+		$last_max = $other_max + $diff;
+	}
+	if (!isset($footer_min)) {
+		// Just in case there were no footer scripts.
+		$footer_min = $last_max;
+	}
+	// Finally push footer scripts down below everything else.
+	if ($footer_min <= $last_max) {
+		$diff = $last_max - $footer_min + 1;
+		foreach ($scopes['footer'] as $key => &$script) {
+			$script['group'] += $diff;
+		}
+	}
+}
