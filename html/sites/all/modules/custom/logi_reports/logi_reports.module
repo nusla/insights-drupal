@@ -20,16 +20,22 @@ function logi_reports_menu() {
 function _logi_reports_report_callback($report){
 	$report = preg_replace('/-/', '.', $report);
 	
+	$guid = sha1(rand(0, 1000000));
 	$return = array();
+	$iframeUrl = variable_get('logi_url') . 'logi/rdPage.aspx?rdReport=' . $report . '&rdembedded=true';
 	$return['report_container'] = array(
 			'#markup' => '
 				<div class="graph logi-content">
-					<div id="logi-report-div" data-autoSizing="all"  data-applicationUrl="' . variable_get('logi_url') . 'logi" data-report="' . $report . '" ></div>
-				</div>'
+					<div id="logi-report-div" data-autoSizing="all"  data-applicationUrl="' . variable_get('logi_url') . 'logi" data-report="' . $report . '" data-rdguid="' . $guid . '">
+						<iframe id="rdFrame' . $guid . '" src="' . $iframeUrl . '" width="100%" frameborder="0" onload="EmbeddedReporting.get(\'logi-report-div\').frameLoaded();"></iframe>
+					</div>	
+			</div>
+			
+			'
 	);
 	
-	drupal_add_js(variable_get('logi_url') . 'logi/rdTemplate/rdEmbedApi/rdEmbed.js', array('scope' => 'header', 'weight' => -100));
-	drupal_add_js('EmbeddedReporting.init();',  array('scope' => 'footer', 'type' => 'inline', 'weight' => -100));
+	drupal_add_js(variable_get('logi_url') . 'logi/rdTemplate/rdEmbedApi/rdEmbedMy.js', array('scope' => 'footer'));
+// 	drupal_add_js('EmbeddedReporting.init();',  array('scope' => 'footer', 'type' => 'inline', 'weight' => -100));
 // 	$return['logi_js_container'] = array(
 // 			'#markup' => '<script src="' . variable_get('logi_url') . 'logi/rdTemplate/rdEmbedApi/rdEmbed.js" type="text/Javascript"></script>'
 // 	);
