@@ -5,12 +5,12 @@ function actuos_preprocess_page(&$variables) {
 	drupal_add_css ( '//fonts.googleapis.com/css?family=Open+Sans:300italic,400,400italic,300,600,600italic,700&subset=cyrillic-ext,latin', 'external' );
 	drupal_add_css ( '//fonts.googleapis.com/css?family=Lato:100,300,400', 'external' );
 	drupal_add_css ( '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css', 'external' );
-	drupal_add_js ( '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js', 'external' );
+	drupal_add_js ( '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_css ( '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', 'external' );
 	
 	
-	drupal_add_js ( '//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js', 'external' );
-	drupal_add_js ( '//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js', 'external' );
+	drupal_add_js ( '//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js', array('type' => 'external', 'scope' => 'footer') );
+	drupal_add_js ( '//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js', array('type' => 'external', 'scope' => 'footer') );
 	
 	$noFrontPages = array('user/register', 'user/password');
 	
