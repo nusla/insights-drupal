@@ -18,6 +18,9 @@ Drupal.behaviors.actuos = {
 		  if ('"Reload"' === e.data){
 			  frameParent.addClass('spinner');
 		  }
+		  if ('"Loaded"' === e.data){
+			  frameParent.removeClass('spinner');
+		  }
 	  },false);
 	  
 	  window.onload = function(){
