@@ -70,6 +70,10 @@ function actuos_preprocess_page(&$variables) {
 			$color = 'blue';
 			$header_icon = array('fa-dollar');
 			break;
+		case 'User Analysis':
+			$color = 'green';
+			$header_icon = array('fa-users');
+			break;
 		case 'Post Sale':
 			$color = 'yellow';
 			$header_icon = array('fa-connectdevelop');
