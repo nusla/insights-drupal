@@ -162,6 +162,11 @@ function actuos_menu_link(array $variables) {
 				$variables['element']['#attributes']['class'][] = 'green-icon';
 				$variables['element']['#localized_options']['html'] = true;
 				break;
+			case 'User Analysis':
+				$variables['element']['#title'] = '<i class="fa fa-users"> </i><span>' . $variables['element']['#title'] . '</span>';
+				$variables['element']['#attributes']['class'][] = 'green-icon';
+				$variables['element']['#localized_options']['html'] = true;
+				break;
 			case 'Sale Management':
 			case 'Sales Performance':
 				$variables['element']['#title'] = '<i class="fa fa-dollar"> </i><span>' . $variables['element']['#title'] . '</span>';
