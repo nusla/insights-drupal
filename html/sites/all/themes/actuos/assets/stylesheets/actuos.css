@@ -11187,27 +11187,35 @@ img.bg {
   }
 }
 .loginform_holder {
-  margin-top: -8%;
   padding: 2%;
   min-height: 325px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 5px;
+  margin-top: 2em;
 }
 .inputicon_email {
   position: absolute;
   font-size: 1.8rem;
-  top: 42px;
+  top: 50%;
   left: 16px;
   color: #333;
   opacity: 0.9;
+  height: 18px;
+  margin-top: -9px;
 }
 .inputicon_pswd {
   position: absolute;
   font-size: 2.6rem;
-  top: 36px;
+  top: 50%;
   left: 16px;
   color: #333;
   opacity: 0.9;
+  margin-top: -12px;
+  height: 24px;
+}
+#user-login-form .form-group {
+  height: 50px;
+  position: relative;
 }
 input.loginmail {
   height: 50px;
@@ -11286,22 +11294,6 @@ a.lang_select {
   right: 15%;
   position: relative;
 }
-input.log_in {
-  padding: 16px 36px 16px 36px;
-  font-size: 1.1em;
-  color: #ffffff;
-  background-color: #df4b38;
-  font-weight: 400;
-  border-radius: 2px;
-  border: none;
-  text-align: center;
-  text-transform: uppercase;
-  -webkit-transition: all 0.3s ease-in;
-  -moz-transition: all 0.3s ease-in;
-  -ms-transition: all 0.3s ease-in;
-  -o-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in;
-}
 input.log_in:hover,
 button.log_in:focus {
   background-color: #c0392b;
@@ -11364,21 +11356,12 @@ button.log_in:focus {
   }
 }
 @media (max-width: 991px) {
-  .loginform_holder {
-    left: 8%;
-  }
   .rms_itself {
     margin-top: 58%;
     width: 10%;
   }
 }
 @media (max-width: 767px) {
-  .loginform_holder {
-    margin-top: 4%;
-    margin-left: 3%;
-    margin-right: 3%;
-    left: 0;
-  }
   label.keep_me_signed span {
     margin-top: -0.6%;
   }
@@ -11433,9 +11416,6 @@ button.log_in:focus {
   }
 }
 @media (max-width: 414px) {
-  .loginform_holder {
-    padding-top: 5%;
-  }
   .rms_itself {
     margin-top: 18%;
   }
@@ -11447,25 +11427,14 @@ button.log_in:focus {
   }
 }
 @media (max-width: 375px) {
-  .loginform_holder {
-    margin-top: 13%;
-  }
   .rms_itself {
     margin-top: 13%;
     width: 16%;
   }
 }
 @media (max-width: 360px) {
-  .loginform_holder {
-    margin-top: 15%;
-  }
   .rms_itself {
     margin-top: 8%;
-  }
-}
-@media (max-width: 320px) {
-  .loginform_holder {
-    margin-top: 18%;
   }
 }
 @media (max-height: 400px) {
@@ -11475,6 +11444,9 @@ button.log_in:focus {
 }
 body {
   font-size: 10px;
+}
+body.not-logged-in {
+  background-color: #333;
 }
 .login-form-wrapper .form-required {
   display: none;
@@ -11504,13 +11476,30 @@ body {
   float: left;
   width: 55%;
 }
+input.log_in {
+  padding: 16px 36px 16px 36px;
+  font-size: 1.1em;
+  color: #ffffff;
+  background-color: #df4b38;
+  font-weight: 400;
+  border-radius: 2px;
+  border: none;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
 .forgot-pswd {
   position: relative;
   width: 37%;
 }
 .login-form-wrapper .form-actions {
-  margin-top: 3em;
-  float: right!important;
+  margin-top: 6em;
+  clear: both;
 }
 .form-item,
 .form-actions {
@@ -11568,4 +11557,7 @@ body {
 .rms-logo-bottom {
   width: 100%;
   position: relative;
+}
+.logoholder {
+  text-align: center;
 }

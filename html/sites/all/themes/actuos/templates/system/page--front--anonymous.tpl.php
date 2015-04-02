@@ -1,23 +1,23 @@
-<img src="<?php print base_path() . drupal_get_path('theme', 'actuos'); ?>/assets/images/rmsbgd_777.jpg" class="bg">
 <div class="wrappa">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3 col-md-offset-2 col-sm-4 logoholder hidden-xs">
+			<div class="col-md-3 col-sm-3"></div>
+			<div class="col-md-6 col-sm-6 logoholder hidden-xs">
 				<img src="<?php print base_path() . drupal_get_path('theme', 'actuos'); ?>/assets/images/main_logo.png"
-					class="actuos_logo img-responsive animated bounceInDown">
+					class="actuos_logo animated bounceInDown">
 			</div>
-			<div class="col-md-5 col-sm-7 col-md-offset-1 col-sm-offset-0 loginform_holder animated bounceInRight">
+			<div class="col-md-3 col-sm-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-3"></div>
+			<div class="col-md-6 col-sm-6 loginform_holder animated bounceInRight">
 				<div class="login-form-wrapper">
   					<?php print $login_content; ?>
 				</div>
 				<div class="clearfix"></div>
 				<?php print $messages; ?>
-				
-				
 			</div>
-			<div class="center-block">
-				<a href="#" class="center-block rms-logo-bottom"> <img src="<?php print base_path() . drupal_get_path('theme', 'actuos'); ?>/assets/images/rms_lowerlogo.png" class="center-block img-responsive rms_itself animated bounceInUp"></a>
-			</div>
+			<div class="col-md-3 col-sm-3"></div>
 		</div>
 		<!-- Row END -->
 

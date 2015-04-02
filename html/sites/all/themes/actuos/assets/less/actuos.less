@@ -1,6 +1,9 @@
 body {
   font-size: 10px;
 }
+body.not-logged-in {
+    background-color: #333;
+}
 .login-form-wrapper .form-required{
 	display: none;
 }
@@ -30,13 +33,31 @@ body {
 	float: left;
     width: 55%;
 }
+input.log_in {
+    padding: 16px 36px 16px 36px;
+    font-size: 1.1em;
+    color: #ffffff;
+    background-color: #df4b38;
+    font-weight: 400;
+    border-radius: 2px;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
 .forgot-pswd{
 	position: relative;
 	width: 37%;
 }
 .login-form-wrapper .form-actions{
-	margin-top: 3em;
-	float: right!important;
+	margin-top: 6em;
+    clear: both;
 }
 .form-item, .form-actions {
     margin-top: 0;
@@ -99,4 +120,7 @@ body {
 .rms-logo-bottom{
 	width: 100%;
 	position: relative;
+}
+.logoholder{
+	text-align: center;
 }
