@@ -148,6 +148,7 @@ function actuos_form_alter(&$form, &$form_state, $form_id) {
 		case 'user_pass':
 			$form ['name'] ['#field_prefix'] = '<div class="form-group">';
 			$form ['name'] ['#field_suffix'] = '<i class="inputicon_email fa fa-envelope"></i></div>';
+			$form ['name'] ['#attributes'] ['placeholder'] = t ( 'example@email.com' );
 			
 			$form['actions']['submit']['#attributes']['class'] = array('btn', 'btn-default', 'user-submit-btn');
 			
@@ -155,8 +156,11 @@ function actuos_form_alter(&$form, &$form_state, $form_id) {
 		case 'user_register_form':
 			$form['account']['name'] ['#field_prefix'] = '<div class="form-group">';
 			$form['account']['name'] ['#field_suffix'] = '<i class="inputicon_email fa fa-user"></i></div>';
+			$form['account']['name'] ['#attributes'] ['placeholder'] = t ( 'johnsmith' );
+			
 			$form['account']['mail'] ['#field_prefix'] = '<div class="form-group">';
 			$form['account']['mail'] ['#field_suffix'] = '<i class="inputicon_email fa fa-envelope"></i></div>';
+			$form['account']['mail'] ['#attributes'] ['placeholder'] = t ( 'example@email.com' );
 			
 			$form['actions']['submit']['#attributes']['class'] = array('btn', 'btn-default', 'user-submit-btn');
 			break;	
