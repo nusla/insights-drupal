@@ -145,6 +145,21 @@ function actuos_form_alter(&$form, &$form_state, $form_id) {
 			$form ['pass'] ['#field_prefix'] = '<div class="form-group">';
 			$form ['pass'] ['#field_suffix'] = '<i class="inputicon_pswd fa fa-lock"></i></div>';
 			break;
+		case 'user_pass':
+			$form ['name'] ['#field_prefix'] = '<div class="form-group">';
+			$form ['name'] ['#field_suffix'] = '<i class="inputicon_email fa fa-envelope"></i></div>';
+			
+			$form['actions']['submit']['#attributes']['class'] = array('btn', 'btn-default', 'user-submit-btn');
+			
+			break;	
+		case 'user_register_form':
+			$form['account']['name'] ['#field_prefix'] = '<div class="form-group">';
+			$form['account']['name'] ['#field_suffix'] = '<i class="inputicon_email fa fa-user"></i></div>';
+			$form['account']['mail'] ['#field_prefix'] = '<div class="form-group">';
+			$form['account']['mail'] ['#field_suffix'] = '<i class="inputicon_email fa fa-envelope"></i></div>';
+			
+			$form['actions']['submit']['#attributes']['class'] = array('btn', 'btn-default', 'user-submit-btn');
+			break;	
 	}
 }
 
