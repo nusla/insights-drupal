@@ -4,6 +4,19 @@ body {
 body.not-logged-in {
     background-color: #333;
 }
+.loginform_holder {
+    padding: 2%;
+    min-height: 325px;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 5px;
+    margin-top: 2em;
+}
+
+
+body.not-logged-in.page-user-password .loginform_holder{
+    min-height: 200px;
+}
+
 .login-form-wrapper .form-required{
 	display: none;
 }
@@ -51,12 +64,76 @@ input.log_in {
     transition: all 0.3s ease-in;
 }
 
+input.user-submit-btn{
+	 padding: 16px 36px 16px 36px;
+    font-size: 1.1em;
+    color: #ffffff;
+    background-color: #df4b38;
+    font-weight: 400;
+    border-radius: 2px;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+#user-pass input.form-text, #user-register-form input.form-text{
+	height: 50px;
+    background-color: #ffffff;
+    color: #a4b1b5;
+    font-size: 1.286rem;
+    font-weight: 400;
+    text-align: left;
+    border: none;
+    outline: none;
+    padding-left: 45px;
+    width: 100%;
+}
+
+input.loginmail {
+    height: 50px;
+    background-color: #ffffff;
+    color: #a4b1b5;
+    font-size: 1.286rem;
+    font-weight: 400;
+    text-align: left;
+    border: none;
+    outline: none;
+    padding-left: 45px;
+}
+
+input.loginpassword {
+    height: 50px;
+    background-color: #ffffff;
+    color: #a4b1b5;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: left;
+    border: none;
+    outline: none;
+    padding-left: 45px;
+}
+
+#user-register-form label{
+	/*font-size: 1.2em;*/
+}
+#user-register-form .description{
+	color: #000;
+	margin: 1em 0 2em 0;
+}
+
+
 .forgot-pswd{
 	position: relative;
 	width: 37%;
 }
 .login-form-wrapper .form-actions{
-	margin-top: 6em;
+	margin-top: 2em;
     clear: both;
 }
 .form-item, .form-actions {
@@ -104,11 +181,6 @@ input.log_in {
 
 .logi-content iframe{
 	width: 100%;
-}
-
-#user-pass .form-item label, #user-register-form .form-item label{
-	color: #000;
-	min-width: 10em;
 }
 
 .content-dashboard label{

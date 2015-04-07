@@ -12,12 +12,19 @@ function actuos_preprocess_page(&$variables) {
 	drupal_add_js ( '//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js', array('type' => 'external', 'scope' => 'footer') );
 	drupal_add_js ( '//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js', array('type' => 'external', 'scope' => 'footer') );
 	
-	$noFrontPages = array('user/register', 'user/password');
+	$noFrontPages = array();
 	
 	if (! $variables ['logged_in'] && !in_array(current_path(), $noFrontPages)) {
 		$variables ['theme_hook_suggestions'] [] = 'page__front__anonymous';
-		$form = drupal_get_form('user_login_block');
-		$variables['login_content'] = drupal_render($form);
+		
+		if (in_array(current_path(), array('user/register', 'user/password'))){
+			$variables['login_content'] = drupal_render($variables['page']['content']);
+		} else {
+			$form = drupal_get_form('user_login_block');
+			$variables['login_content'] = drupal_render($form);
+		}
+		
+// 		var_dump($variables['page']['content']);
 // 		var_dump($variables['content']);
 	} else {
 		drupal_add_css(drupal_get_path('theme', 'actuos') . '/assets/stylesheets/customz.css', 'file');

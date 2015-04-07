@@ -3,8 +3,7 @@
 		<div class="row">
 			<div class="col-md-3 col-sm-3"></div>
 			<div class="col-md-6 col-sm-6 logoholder hidden-xs">
-				<img src="<?php print base_path() . drupal_get_path('theme', 'actuos'); ?>/assets/images/main_logo.png"
-					class="actuos_logo bounceInDown">
+				<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><img src="<?php print base_path() . drupal_get_path('theme', 'actuos'); ?>/assets/images/main_logo.png" class="actuos_logo bounceInDown"></a>
 			</div>
 			<div class="col-md-3 col-sm-3"></div>
 		</div>

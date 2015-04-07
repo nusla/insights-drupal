@@ -71,7 +71,7 @@ function _actuos_portal_menu_post_sales_callback(){
 
 function actuos_portal_form_alter(&$form, &$form_state, $form_id){
 	if ('user_pass' == $form_id || 'user_register_form' == $form_id){
-		$form['actions']['submit']['#attributes']['class'] = array('btn', 'btn-default');
+		$form['actions']['submit']['#attributes']['class'] = array('btn', 'btn-default', 'user-submit-btn');
 	}
 	
 	
