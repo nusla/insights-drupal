@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -8347,7 +8348,6 @@ button.close {
   width: 25px;
   height: 25px;
 }
-@charset "UTF-8";
 /*!
 Animate.css - http://daneden.me/animate
 Licensed under the MIT license - http://opensource.org/licenses/MIT
@@ -11130,6 +11130,9 @@ Copyright (c) 2014 Daniel Eden
   .rms_itself {
     margin-top: 43%;
   }
+  #user-profile-form {
+    width: 60%;
+  }
 }
 @media (min-width: 1600px) {
   .rms_itself {
@@ -11388,7 +11391,6 @@ input.loginpassword {
 .content-dashboard {
   width: 100%;
   padding: 1em;
-  margin-top: 50px;
   padding: 2em;
 }
 .search {
@@ -11550,6 +11552,9 @@ button.log_in:focus {
   color: #51626f;
   font-family: 'Gill Sans Semibold', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.protfolio-logo {
+  text-align: right;
+}
 .main-menu-container {
   line-height: 50px;
   background-color: #51626f;
@@ -11572,10 +11577,13 @@ button.log_in:focus {
 .main-menu-container ul li.active-trail {
   background-color: #7b939b;
 }
+.main-menu-container ul.user-menu li {
+  padding: 0 0 0 4em;
+}
 .main-menu-container .menu-pipe {
-  width: 20px;
-  float: left;
-  border-right: 1px solid #fff;
+  width: 1px;
+  float: right;
+  border-left: 1px solid #fff;
   height: 30px;
   margin: 10px 0;
 }
@@ -11584,6 +11592,9 @@ button.log_in:focus {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   text-transform: uppercase;
+}
+.main-menu-container ul.user-menu {
+  float: right;
 }
 .main-menu-container ul.user-menu li a {
   color: #fff;
