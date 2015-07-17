@@ -62,8 +62,6 @@ Drupal.behaviors.actuos = {
 		  redirect2searchURL();
 	  });
 	  
-	  console.log(jQuery('#user-profile-form select[name=timezone]'))
-	  
 	  jQuery('#user-profile-form select[name=timezone]').select2({
 		  width: '100%'
 	  });
