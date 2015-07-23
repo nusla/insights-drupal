@@ -17,6 +17,6 @@
 			<div class="col-md-3 col-sm-3"></div>
 		</div>
 		<!-- Row END -->
-
+	<div class="logo-container"><img src="<?php print $logo; ?>" /></div>
 	</div>
 </div>
