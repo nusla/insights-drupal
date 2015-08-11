@@ -63,7 +63,7 @@ Drupal.behaviors.actuos = {
 	  });
 	  
 	  jQuery('#user-profile-form select[name=timezone]').select2({
-		  width: '100%'
+		  width: '400px'
 	  });
 	  
     

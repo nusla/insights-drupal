@@ -2,6 +2,7 @@
 function insights_preprocess_html(&$variables) {
 }
 function insights_preprocess_page(&$variables) {
+	
 	drupal_add_css ( '//fonts.googleapis.com/css?family=Open+Sans:300italic,400,400italic,300,600,600italic,700&subset=cyrillic-ext,latin', 'external' );
 	drupal_add_css ( '//fonts.googleapis.com/css?family=Lato:100,300,400', 'external' );
 	drupal_add_css ( '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css', 'external' );
@@ -374,4 +375,41 @@ function insights_js_alter(&$javascript) {
 			$script['group'] += $diff;
 		}
 	}
+	
+}
+ 
+function insights_status_messages($variables) {
+ 	$display = $variables ['display'];
+  $output = '';
+
+  $status_heading = array(
+    'status' => t('Status message'),
+    'error' => t('Error message'),
+    'warning' => t('Warning message'),
+  );
+  
+  $type2Class = array(
+  		'status' => 'alert-info',
+  		'error' => 'alert-danger',
+  		'warning' => 'alert-warning',
+  );
+  
+  foreach (drupal_get_messages($display) as $type => $messages) {
+    $output .= "<div class=\"msg alert " . $type2Class[$type] . "\">\n";
+    if (!empty($status_heading [$type])) {
+      $output .= '<h2 class="element-invisible">' . $status_heading [$type] . "</h2>\n";
+    }
+    if (count($messages) > 1) {
+      $output .= " <ul>\n";
+      foreach ($messages as $message) {
+        $output .= '  <li>' . $message . "</li>\n";
+      }
+      $output .= " </ul>\n";
+    }
+    else {
+      $output .= reset($messages);
+    }
+    $output .= "</div>\n";
+  }
+  return $output;
 }

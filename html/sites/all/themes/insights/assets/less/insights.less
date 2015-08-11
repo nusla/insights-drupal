@@ -146,8 +146,6 @@ input.loginpassword {
 .content-dashboard {
 
 	width: 100%;
-	padding: 1em;
-	padding: 2em;
 }
 
 .search {
@@ -411,7 +409,7 @@ input.log_in:hover, button.log_in:focus {
 }
 
 .sub-menu-container ul{
-    margin: 0 0 0 6em;
+    margin: 0;
     padding: 0;
     list-style-type: none;
     vertical-align: middle;
@@ -459,7 +457,7 @@ input.log_in:hover, button.log_in:focus {
 	display: block;
 }
 #user-profile-form input[type=text], #user-profile-form input[type=password]{
-	width: 100%;
+	width: 400px;
     background-color: #d4d4d4;
     border: 1px solid #B4BEE8;
     height: 30px;
@@ -481,6 +479,7 @@ input.log_in:hover, button.log_in:focus {
 #user-profile-form #edit-submit{
     width: 200px;
 	float: right;
+	margin: 5em 0;
 } 
 #user-profile-form #edit-change-email, #user-profile-form #edit-change-password, #user-profile-form #edit-timezone{
     margin: 2em 0 0 0;
@@ -489,6 +488,10 @@ input.log_in:hover, button.log_in:focus {
 #user-profile-form label {
     color: #aaa;
     text-transform: uppercase;
+}
+
+#user-profile-form .description a {
+    font-size: 1em;
 }
 
 .spinner{
@@ -504,5 +507,9 @@ input.log_in:hover, button.log_in:focus {
 	  bottom: 0;
 }
 .logo-container img{
-	padding: 1em;
+	padding: 1.2em;
+}
+
+.msg.alert{
+	margin-top: 2em;
 }

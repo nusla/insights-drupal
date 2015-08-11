@@ -11130,9 +11130,6 @@ Copyright (c) 2014 Daniel Eden
   .rms_itself {
     margin-top: 43%;
   }
-  #user-profile-form {
-    width: 60%;
-  }
 }
 @media (min-width: 1600px) {
   .rms_itself {
@@ -11390,8 +11387,6 @@ input.loginpassword {
 }
 .content-dashboard {
   width: 100%;
-  padding: 1em;
-  padding: 2em;
 }
 .search {
   background-color: #2F373A;
@@ -11614,7 +11609,7 @@ button.log_in:focus {
   background-color: #abc0c6;
 }
 .sub-menu-container ul {
-  margin: 0 0 0 6em;
+  margin: 0;
   padding: 0;
   list-style-type: none;
   vertical-align: middle;
@@ -11662,7 +11657,7 @@ button.log_in:focus {
 }
 #user-profile-form input[type=text],
 #user-profile-form input[type=password] {
-  width: 100%;
+  width: 400px;
   background-color: #d4d4d4;
   border: 1px solid #B4BEE8;
   height: 30px;
@@ -11681,6 +11676,7 @@ button.log_in:focus {
 #user-profile-form #edit-submit {
   width: 200px;
   float: right;
+  margin: 5em 0;
 }
 #user-profile-form #edit-change-email,
 #user-profile-form #edit-change-password,
@@ -11690,6 +11686,9 @@ button.log_in:focus {
 #user-profile-form label {
   color: #aaa;
   text-transform: uppercase;
+}
+#user-profile-form .description a {
+  font-size: 1em;
 }
 .spinner {
   height: 50em;
@@ -11704,5 +11703,8 @@ button.log_in:focus {
   bottom: 0;
 }
 .logo-container img {
-  padding: 1em;
+  padding: 1.2em;
+}
+.msg.alert {
+  margin-top: 2em;
 }
