@@ -1,0 +1,9 @@
+<?php
+/**
+ * @file
+ * Code for the Insights Report metadata feature.
+ */
+
+include_once 'insights_report_metadata.features.inc';
+
+module_load_include('inc', 'insights_report_metadata', 'hive');
