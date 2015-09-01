@@ -112,9 +112,10 @@ function insights_report_metadata_views_default_views() {
   $handler->display->display_options['fields']['field_column']['id'] = 'field_column';
   $handler->display->display_options['fields']['field_column']['table'] = 'field_data_field_column';
   $handler->display->display_options['fields']['field_column']['field'] = 'field_column';
-  $handler->display->display_options['fields']['field_column']['label'] = 'Database Column';
+  $handler->display->display_options['fields']['field_column']['label'] = '';
   $handler->display->display_options['fields']['field_column']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_column']['alter']['path'] = 'node/[nid]/edit';
+  $handler->display->display_options['fields']['field_column']['element_label_colon'] = FALSE;
   /* Field: Content: Title (editable) */
   $handler->display->display_options['fields']['title_editable']['id'] = 'title_editable';
   $handler->display->display_options['fields']['title_editable']['table'] = 'node';
@@ -123,11 +124,24 @@ function insights_report_metadata_views_default_views() {
   $handler->display->display_options['fields']['title_editable']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title_editable']['link_to_node'] = FALSE;
   $handler->display->display_options['fields']['title_editable']['textfield_size'] = '30';
+  /* Field: Content: Active (editable) */
+  $handler->display->display_options['fields']['field_active_editable']['id'] = 'field_active_editable';
+  $handler->display->display_options['fields']['field_active_editable']['table'] = 'field_data_field_active';
+  $handler->display->display_options['fields']['field_active_editable']['field'] = 'field_active_editable';
+  $handler->display->display_options['fields']['field_active_editable']['label'] = '';
+  $handler->display->display_options['fields']['field_active_editable']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_active_editable']['widget_type'] = 'options_onoff';
+  $handler->display->display_options['fields']['field_active_editable']['suppress_label'] = 1;
+  $handler->display->display_options['fields']['field_active_editable']['suppress_description'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Database Column Name (field_column) */
   $handler->display->display_options['sorts']['field_column_value']['id'] = 'field_column_value';
   $handler->display->display_options['sorts']['field_column_value']['table'] = 'field_data_field_column';
   $handler->display->display_options['sorts']['field_column_value']['field'] = 'field_column_value';
+  /* Sort criterion: Content: Active (field_active) */
+  $handler->display->display_options['sorts']['field_active_value']['id'] = 'field_active_value';
+  $handler->display->display_options['sorts']['field_active_value']['table'] = 'field_data_field_active';
+  $handler->display->display_options['sorts']['field_active_value']['field'] = 'field_active_value';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Table (field_table) */
   $handler->display->display_options['arguments']['field_table_value']['id'] = 'field_table_value';

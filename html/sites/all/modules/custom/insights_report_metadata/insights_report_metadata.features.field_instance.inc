@@ -20,11 +20,7 @@ function insights_report_metadata_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(
-          'quickedit' => array(
-            'editor' => 'plain_text',
-          ),
-        ),
+        'settings' => array(),
         'type' => 'text_default',
         'weight' => 0,
       ),
@@ -62,6 +58,48 @@ function insights_report_metadata_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-column-field_active'
+  $field_instances['node-column-field_active'] = array(
+    'bundle' => 'column',
+    'default_value' => array(
+      0 => array(
+        'value' => 1,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_active',
+    'label' => 'Active',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => -1,
+    ),
+  );
+
   // Exported field_instance: 'node-column-field_column'
   $field_instances['node-column-field_column'] = array(
     'bundle' => 'column',
@@ -72,11 +110,7 @@ function insights_report_metadata_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'list',
-        'settings' => array(
-          'quickedit' => array(
-            'editor' => 'form',
-          ),
-        ),
+        'settings' => array(),
         'type' => 'list_default',
         'weight' => 2,
       ),
@@ -113,11 +147,7 @@ function insights_report_metadata_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'list',
-        'settings' => array(
-          'quickedit' => array(
-            'editor' => 'form',
-          ),
-        ),
+        'settings' => array(),
         'type' => 'list_default',
         'weight' => 1,
       ),
@@ -197,6 +227,7 @@ function insights_report_metadata_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Active');
   t('Body');
   t('Comment');
   t('Database Column Name');
