@@ -22,9 +22,11 @@
 </div>
 <div class="row sub-menu-container">
 	<div class="container">
+	  <div class="row">
 		<div class="col-md-12">
 			<?php print render($submenu); ?>
 		</div>
+  	  </div>
 	</div>
 </div>
     <!-- **********************************************************************************************************************************************************
