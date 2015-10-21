@@ -1,7 +1,7 @@
 <section id="container" >
 
 
-<div class="row">
+<div>
 	<div class="container">
 	  <div class="row">
 		<div class="col-md-8 protfolio-title">PORTFOLIO INSIGHTS TOOL</div>
@@ -9,7 +9,7 @@
   	  </div>
 	</div>
 </div>
-<div class="row main-menu-container">
+<div class="main-menu-container">
 	<div class="container">
 	  <div class="row">
 		<div class="col-md-12">
@@ -20,7 +20,7 @@
 		</div>
 	</div>
 </div>
-<div class="row sub-menu-container">
+<div class="sub-menu-container">
 	<div class="container">
 	  <div class="row">
 		<div class="col-md-12">
@@ -44,8 +44,8 @@
         <section class="wrapper">
           <section class="sub-wrapper">
 
-          	<div class="row">
-				<div class="container">
+			<div class="container">
+	          	<div class="row">
             		<div class="content-dashboard"><?php print $messages; ?><?php print render($page['content']); ?>
 				</div>
 			</div>
