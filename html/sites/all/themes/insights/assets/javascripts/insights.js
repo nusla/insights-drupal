@@ -13,16 +13,26 @@ Drupal.behaviors.actuos = {
 	  eventer(messageEvent,function(e) {
 		  if ('"Reload"' === e.data){
 			  frameParent.addClass('spinner');
+			  return;
 		  }
 		  if ('"Loaded"' === e.data){
 			  frameParent.removeClass('spinner');
+			  return;
+		  }
+		  var req = JSON.parse(e.data);
+		  
+		  if ('object' == typeof req){
+		      if ('frame_resized' == req.command){
+		          if (req.height){
+		              frame.css('height', parseInt(req.height) + 50 + 'px');
+		          }
+		      }
 		  }
 	  },false);
 	  
 	  window.onload = function(){
 		  setTimeout(function(){
 			  var frameHeight = parseInt(frame.attr('height')) || 500;
-			  console.log(frameHeight)
 			  frame.css('height', frameHeight + 50 + 'px');
 		  }, 1000);
 		  
