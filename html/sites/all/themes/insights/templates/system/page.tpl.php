@@ -4,7 +4,7 @@
 <div>
 	<div class="container">
 	  <div class="row">
-		<div class="col-md-8 protfolio-title">PORTFOLIO INSIGHTS TOOL</div>
+		<div class="col-md-8 protfolio-title">PORTFOLIO INSIGHTS</div>
 		<div class="col-md-4 protfolio-logo"><img src="<?php print $logo; ?>" /></div>
   	  </div>
 	</div>
