@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="front-title">Portfolio Insight Tool</div>
+				<div class="front-title">Portfolio Insights</div>
 			</div>
 		</div>
 		<div class="row">
